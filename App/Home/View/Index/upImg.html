@@ -1,0 +1,24 @@
+<extend name='Base/index' />
+<block name="title">
+    <title> 图片上传</title>
+</block>
+<block name="body">
+    <form method="post" action="{:U('Home/Index/upImg')}" enctype="multipart/form-data">
+        <input type="file" name="file" />
+        <br>
+        <br>
+        <br>
+        <input type="submit" value="提交" />
+    </form>
+    <if condition="$upError">
+        <div>
+            {$upError}
+        </div>
+    </if>
+    <if condition="$upSuccess">
+        <div>
+            {$upSuccess}
+            路劲为：{$path}
+        </div>
+    </if>
+</block>

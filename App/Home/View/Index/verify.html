@@ -1,0 +1,41 @@
+<extend name="Base/index" />
+<block name="title">
+    <title> 验证码</title>
+</block>
+<block name="body">
+    <div class="yzm">
+        <img src="__URL__/createVerify/" />
+        <button id="change" >更换验证码</button>
+    </div>
+    <br>
+    <br>
+    <div class="yz">
+        <input type="text" name="yz" id="yz" placeholder="请填写验证码" />
+        <input type="submit" value="提交" id='tj' />
+    </div>
+</block>
+<block name="script">
+    <script>
+        $('#change').click(function(){
+            $('img').attr('src','__URL__/createVerify/'+'?'+Math.random());
+        });
+        $('#tj').click(function(){
+            var code = $('#yz').val();
+            if(!code){ console.log('验证码不能为空');return;}
+            $.ajax({
+                type:'POST',
+                url:'__URL__/checkVerify',
+                data:{
+                    code:code
+                },
+                success:function(data){
+                    console.log(data);
+                },
+                error:function(data){
+                    console.log(data);
+                }
+            });
+
+        });
+    </script>
+</block>
