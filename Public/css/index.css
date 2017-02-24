@@ -1,0 +1,75 @@
+html,body{
+    background-color: #222222;
+}
+header{
+    overflow: hidden;
+    height:50px;
+    line-height:50px;
+}
+.login_in{
+    margin-top:100px;
+    padding:50px 20px;
+    background-color: #fff;
+
+}
+.dropdown-menu .navbarLi{
+    border-bottom: 1px solid #ccc;
+    height:40px;
+    line-height: 40px;
+}
+.dropdown-menu>li>a{
+    height:40px;
+    line-height: 40px;
+    padding:0 20px;
+}
+.dropdown-menu .navbarLi:last-child{
+    border-bottom: none;
+}
+.bodyLeft{
+    /*margin-top:50px;*/
+    display: inline-block;
+    width:20%;
+    vertical-align: top;
+    min-height: 100%;
+}
+.nav-pills>li>a{
+    border-radius: 0;
+    padding: 18px 15px;
+}
+.bodyLeft li:hover a,.bodyLeft li:focus a{
+    background-color: #000;
+    color: #fff;
+}
+.nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+    background-color: #000;
+    color: #9d9d9d;
+}
+.bodyLeft li:active a,.bodyLeft li.active a{
+    color: #fff;
+    background-color: #000;
+}
+.nav-pills>li>a{
+    color: #9d9d9d;
+}
+.nav-stacked>li+li{
+    margin:0;
+}
+.bodyRight{
+    width:78%;
+    display: inline-block;
+    vertical-align: top;
+    /*margin-top:50px;*/
+    background-color: #fff;
+    padding: 20px 0;
+
+}
+.category {
+    padding-left:10px;
+}
+.form-horizontal .form-group {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+.form-horizontal .control-label {
+    padding-top: 0;
+}

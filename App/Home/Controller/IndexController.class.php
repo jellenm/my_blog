@@ -3,66 +3,6 @@ namespace Home\Controller;
 use Think\Controller;
 class IndexController extends Controller {
     public function index(){
-        $this->display();
+        $this->show('<style type="text/css">*{ padding: 0; margin: 0; } div{ padding: 4px 48px;} body{ background: #fff; font-family: "微软雅黑"; color: #333;font-size:24px} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.8em; font-size: 36px } a,a:hover{color:blue;}</style><div style="padding: 24px 48px;"> <h1>:)</h1><p>欢迎使用 <b>ThinkPHP</b>！</p><br/>版本 V{$Think.version}</div><script type="text/javascript" src="http://ad.topthink.com/Public/static/client.js"></script><thinkad id="ad_55e75dfae343f5a1"></thinkad><script type="text/javascript" src="http://tajs.qq.com/stats?sId=9347272" charset="UTF-8"></script>','utf-8');
     }
-
-    public function upImg(){
-        if(count($_FILES)){
-            $upload = new \Think\Upload();
-            $upload->maxSize = 1000000;
-            $upload->exts = array('png','gif','jpg');
-            $upload->rootPath = './Uploads/';
-            $info = $upload->upload();
-
-            if($info){
-                $path ='./Uploads/'.$info['file']['savepath'].$info['file']['savename'];
-                $this->assign('upSuccess','上传成功');
-                $this->assign('path',$path);
-                $this->display();
-            }else{
-                $this->assign('upError',$upload->getError());
-                $this->display();
-            }
-        }else{
-            $this->assign('upError','请上传文件');
-            $this->display();
-        }
-    }
-
-    public function verify(){
-        $this->display();
-    }
-
-    public function createVerify(){
-        $config = array(
-            'expire'=>1200,
-            'fontSize'=>25,
-            'useNoise'=>true,
-            'useCouve'=>true,
-        );
-        $pageVerify = new \Think\Verify($config);
-        $pageVerify->entry();
-    }
-
-    public function checkVerify(){
-        $returnStr = array();
-        $code = I('post.code');
-        $res = check_verify($code);
-
-        if($res){
-            $returnStr['status'] = 'ok';
-            $returnStr['str'] = '验证成功';
-            $returnStr['res'] = $res;
-        }else{
-            $returnStr['status'] = 'false';
-            $returnStr['str'] = '验证失败';
-            $returnStr['res'] =$res;
-        }
-        $this->ajaxReturn($returnStr);
-    }
-
-    public function imgHandle(){
-        $this->display();
-    }
-
 }
