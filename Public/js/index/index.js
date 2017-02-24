@@ -64,3 +64,51 @@ $('#logout').click(function(){
 
 });
 
+$('#menu_add').click(function(){
+    var category_name = $('#category_name').val();
+    var category_type = $('#category_type').val();
+    var category_m = $('#category_m').val();
+    var category_c = $('#category_c').val();
+    var category_a = $('#category_a').val();
+    var category_status = $('#category_status').val();
+
+    console.log(category_name,category_type,category_m,category_c,category_a,category_status)
+
+    if(!$.trim(category_name)){
+        layerTool.error('请输入正确的菜单名');
+        return;
+    }
+    if(!$.trim(category_type)){
+        layerTool.error('请输入正确的类型');
+        return;
+    }
+    if(!$.trim(category_m)){
+        layerTool.error('请输入正确的模块');
+        return;
+    }
+    if(!$.trim(category_c)){
+        layerTool.error('请输入正确的控制器');
+        return;
+    }
+    if(!$.trim(category_a)){
+        layerTool.error('请输入正确的操作名');
+        return;
+    }
+    if(!$.trim(category_status)){
+        layerTool.error('请输入正确的状态');
+        return;
+    }
+
+    $.ajax({
+        url:'/Admin/Menu/addEve',
+        type:'GET',
+        data:{'title':category_name,'tm':category_m,'tc':category_c,'ta':category_a,'status':category_status,'type':category_type},
+        success:function(data){
+            console.log(data);
+        },
+        error:function(){
+            
+        }
+    })
+
+})

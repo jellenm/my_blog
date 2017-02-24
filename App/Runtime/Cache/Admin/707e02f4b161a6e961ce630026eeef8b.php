@@ -60,33 +60,39 @@
 
     <div class="bodyRight category">
     <h3>菜单管理/添加</h3>
-        <form>
+        <div >
             <div class="form-group">
                 <label for="category_name">菜单名</label>
-                <input type="text" class="form-control" id="category_name" placeholder="菜单名">
+                <input type="text" class="form-control" id="category_name" name="category_name" placeholder="菜单名">
             </div>
             <div class="form-group">
                 <label for="category_type">菜单类型</label>
-                <input type="text" class="form-control" id="category_type" placeholder="菜单类型">
+                <select class="form-control"  id="category_type">
+                    <option value="1">前台网站</option>
+                    <option value="2">后台网站</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="category_m">模块名</label>
-                <input type="text" class="form-control" id="category_m" placeholder="模块名">
+                <input type="text" class="form-control" id="category_m" name="category_m" placeholder="模块名">
             </div>
             <div class="form-group">
                 <label for="category_m">控制器名</label>
-                <input type="text" class="form-control" id="category_c" placeholder="控制器名">
+                <input type="text" class="form-control" id="category_c" name="category_c" placeholder="控制器名">
             </div>
             <div class="form-group">
                 <label for="category_m">操作名</label>
-                <input type="text" class="form-control" id="category_a" placeholder="操作名">
+                <input type="text" class="form-control" id="category_a" name="category_a" placeholder="操作名">
             </div>
             <div class="form-group">
                 <label for="category_status">状态</label>
-                <input type="text" class="form-control" id="category_status" placeholder="状态">
+                <select class="form-control"  id="category_status">
+                    <option value="1">正常</option>
+                    <option value="2">关闭</option>
+                </select>
             </div>
-            <button type="submit" class="btn btn-primary">提交</button>
-        </form>
+            <button type="submit" class="btn btn-primary" id="menu_add">提交</button>
+        </div>
     </div>
 
 
