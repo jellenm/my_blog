@@ -24,7 +24,7 @@ class LoginController extends Controller{
                 $Dadmin->loginTimeRecord($res['id']);
                 returnJson(1,'登陆成功');
             }else{
-                returnJson(0,'登陆失败');
+                returnJson(0,'用户名或者密码错误');
             }
         }else{
             $this->display();

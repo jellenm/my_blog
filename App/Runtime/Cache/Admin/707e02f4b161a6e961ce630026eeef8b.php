@@ -48,16 +48,16 @@
     </header>
 
 
-
-    <div class="bodyLeft">
-        <ul class="nav nav-pills nav-stacked navbar-inverse">
-            <li role="presentation" <?php if(CONTROLLER_NAME == 'Index'): ?>class="active"<?php endif; ?> ><a href="/Admin/Index/index"> <span class="glyphicon glyphicon-home" aria-hidden="true"></span> 首页</a></li>
-            <li role="presentation" <?php if(CONTROLLER_NAME == 'Menu'): ?>class="active"<?php endif; ?> ><a href="/Admin/Menu/index"> <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span> 菜单管理</a></li>
-            <li role="presentation"  ><a href="#"> <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span> Messages</a></li>
-        </ul>
-    </div>
-
-
+    
+        <div class="bodyLeft">
+            <ul class="nav nav-pills nav-stacked navbar-inverse">
+                <li role="presentation" <?php if(CONTROLLER_NAME == 'Index'): ?>class="active"<?php endif; ?> ><a href="/Admin/Index/index"> <span class="glyphicon glyphicon-home" aria-hidden="true"></span> 首页</a></li>
+                <li role="presentation" <?php if(CONTROLLER_NAME == 'Menu'): ?>class="active"<?php endif; ?> ><a href="/Admin/Menu/index"> <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span> 菜单管理</a></li>
+                <li role="presentation"  ><a href="#"> <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span> Messages</a></li>
+            </ul>
+        </div>
+    
+    
     <div class="bodyRight category">
     <h3>菜单管理/添加</h3>
         <div >

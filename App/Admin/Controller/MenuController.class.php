@@ -4,12 +4,15 @@ use Think\Controller;
 
 class MenuController extends Controller{
     public function index(){
-        $this->display();
+        if(checkSession('UserInfo')){
+            $this->display();
+        }
     }
 
     public function add(){
-        $this->display();
-
+        if(checkSession('UserInfo')){
+            $this->display();
+        }
     }
 
     public function addEve(){
