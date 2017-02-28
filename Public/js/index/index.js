@@ -33,13 +33,6 @@ $('#loginSubmit').click(function(e){
             layerTool.error('登陆失败！');
         }
     })
-
-
-
-
-
-    
-
 });
 
 
@@ -104,11 +97,110 @@ $('#menu_add').click(function(){
         type:'GET',
         data:{'title':category_name,'tm':category_m,'tc':category_c,'ta':category_a,'status':category_status,'type':category_type},
         success:function(data){
-            console.log(data);
+            var res = JSON.parse(data);
+            if(res.status == 1){
+                layerTool.success('添加成功！',function(){
+                    window.location.href='/Admin/Menu/index';
+                })
+            }else{
+                layerTool.error('添加失败');
+            }
         },
         error:function(){
-            
+            layerTool.error('网络连接失败！');
         }
     })
 
-})
+});
+
+$('#menu_type').change(function(){
+    var type = $('#menu_type').val();
+    window.location.href = '/Admin/Menu/index/type/'+type;
+});
+
+$('#menu_order').click(function(){
+    var arr = {};
+    var menus = $('.menu_order');
+    for(var i=0;i<menus.length;i++){
+        var key = $(menus[i]).attr('data-id');
+        var value = $(menus[i]).val();
+        arr[key] = value;
+    }
+
+    $.ajax({
+        url:'/Admin/Menu/orderMenu',
+        type:'GET',
+        data:{
+            'arr':arr
+        },
+        success:function(data){
+           var res = JSON.parse(data);
+           if(res.status == 1){
+               layerTool.success(res.msg,function(){
+                   window.location.href='/Admin/Menu/index';
+               });
+           }else{
+               layerTool.error('修改失败！');
+           }
+        },
+        error:function(){
+            layerTool.error('排序失败');
+        }
+    });
+});
+
+$('#menu_edit').click(function(){
+    var category_name = $('#category_name').val();
+    var category_type = $('#category_type').val();
+    var category_m = $('#category_m').val();
+    var category_c = $('#category_c').val();
+    var category_a = $('#category_a').val();
+    var category_status = $('#category_status').val();
+    var category_menuid = $('#menu_id').val();
+
+    console.log(category_name,category_type,category_m,category_c,category_a,category_status)
+
+    if(!$.trim(category_name)){
+        layerTool.error('请输入正确的菜单名');
+        return;
+    }
+    if(!$.trim(category_type)){
+        layerTool.error('请输入正确的类型');
+        return;
+    }
+    if(!$.trim(category_m)){
+        layerTool.error('请输入正确的模块');
+        return;
+    }
+    if(!$.trim(category_c)){
+        layerTool.error('请输入正确的控制器');
+        return;
+    }
+    if(!$.trim(category_a)){
+        layerTool.error('请输入正确的操作名');
+        return;
+    }
+    if(!$.trim(category_status)){
+        layerTool.error('请输入正确的状态');
+        return;
+    }
+
+    $.ajax({
+        url:'/Admin/Menu/editEve',
+        type:'GET',
+        data:{'title':category_name,'tm':category_m,'tc':category_c,'ta':category_a,'status':category_status,'type':category_type,'menu_id':category_menuid},
+        success:function(data){
+            var res = JSON.parse(data);
+            if(res.status == 1){
+                layerTool.success('修改成功！',function(){
+                    window.location.href='/Admin/Menu/index';
+                })
+            }else{
+                layerTool.error('修改失败');
+            }
+        },
+        error:function(){
+            layerTool.error('网络连接失败！');
+        }
+    })
+});

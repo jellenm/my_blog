@@ -6,45 +6,29 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label"><a class="btn btn-primary" href="/Admin/Menu/add">添加</a></label>
                 <div class="col-sm-10">
-                    <select class="form-control">
-                        <option value="0">选择分类</option>
-                        <option value="1">前台网站</option>
-                        <option value="2">后台网站</option>
+                    <select class="form-control" id="menu_type">
+                        <option value="0" <if condition="$Think.get.type eq 0"> selected </if>  >选择分类</option>
+                        <option value="1" <if condition="$Think.get.type eq 1"> selected </if>  >前台网站</option>
+                        <option value="2" <if condition="$Think.get.type eq 2"> selected </if>  >后台网站</option>
                     </select>
                 </div>
             </div>
-            <table class="table table-bordered">
+            <table class="table table-bordered menu_manage" >
                <tr><th>排序</th><th>id</th><th>菜单名</th><th>模块</th><th>类型</th><th>状态</th><th>操作</th></tr>
-               <tr><td>排序</td><td>id</td><td>菜单名</td><td>模块</td><td>类型</td><td>状态</td><td>操作</td></tr>
-               <tr><td>排序</td><td>id</td><td>菜单名</td><td>模块</td><td>类型</td><td>状态</td><td>操作</td></tr>
-               <tr><td>排序</td><td>id</td><td>菜单名</td><td>模块</td><td>类型</td><td>状态</td><td>操作</td></tr>
-               <tr><td>排序</td><td>id</td><td>菜单名</td><td>模块</td><td>类型</td><td>状态</td><td>操作</td></tr>
-               <tr><td>排序</td><td>id</td><td>菜单名</td><td>模块</td><td>类型</td><td>状态</td><td>操作</td></tr>
-               <tr><td>排序</td><td>id</td><td>菜单名</td><td>模块</td><td>类型</td><td>状态</td><td>操作</td></tr>
-               <tr><td>排序</td><td>id</td><td>菜单名</td><td>模块</td><td>类型</td><td>状态</td><td>操作</td></tr>
-               <tr><td>排序</td><td>id</td><td>菜单名</td><td>模块</td><td>类型</td><td>状态</td><td>操作</td></tr>
+                <volist name="menu" id="vo">
+                    <tr><td><input type="number" value="{$vo.order}" data-id="{$vo.menu_id}" class="menu_order" /></td><td>{$vo.menu_id}</td><td>{$vo.title}</td><td>{$vo.m}</td><td> <if condition="$vo.type eq 1">前台网站 <else /> 后台网站 </if> </td><td> <if condition="$vo.status eq 1">开启 <else />关闭 </if> </td><td><a href="/Admin/Menu/edit/id/{$vo.menu_id}">编辑</a> <a href="/Admin/Menu/closeMenu/id/{$vo.menu_id}">关闭</a></td></tr>
+                </volist>
             </table>
 
-            <button type="button" class="btn btn-primary">确定排序</button>
-            <nav aria-label="Page navigation">
-                <ul class="pagination">
-                    <li>
-                        <a href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li>
-                        <a href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            <div>
+                <button type="button" class="btn btn-primary" id="menu_order">确定排序</button>
+            </div>
+
+            <div class="pagination">
+                {$page}
+            </div>
+
+
         </form>
     </div>
 </block>

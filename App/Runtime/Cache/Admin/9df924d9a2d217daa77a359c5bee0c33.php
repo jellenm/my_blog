@@ -52,8 +52,7 @@
         <div class="bodyLeft">
             <ul class="nav nav-pills nav-stacked navbar-inverse">
                 <li role="presentation" <?php if(CONTROLLER_NAME == 'Index'): ?>class="active"<?php endif; ?> ><a href="/Admin/Index/index"> <span class="glyphicon glyphicon-home" aria-hidden="true"></span> 首页</a></li>
-                <li role="presentation" <?php if(CONTROLLER_NAME == 'Menu'): ?>class="active"<?php endif; ?> ><a href="/Admin/Menu/index"> <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span> 菜单管理</a></li>
-                <li role="presentation"  ><a href="#"> <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span> Messages</a></li>
+                <?php if(is_array($menus)): $i = 0; $__LIST__ = $menus;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li role="presentation" <?php if(CONTROLLER_NAME == $vo['m']): ?>class="active"<?php endif; ?> ><a href="/<?php echo ($vo['m']); ?>/<?php echo ($vo['c']); ?>/<?php echo ($vo['a']); ?>"> <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span> <?php echo ($vo['title']); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
             </ul>
         </div>
     

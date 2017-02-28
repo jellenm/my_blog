@@ -19,7 +19,7 @@ function checkSession($sessionName){
     if(session($sessionName)){
         return true;
     }else{
-        $this->error('您还没有登陆','/Admin/Login/login');
+        redirect('/Admin/Login/login',1,'您还没有登陆');
     }
 }
 
