@@ -2,5 +2,18 @@
 <block name="bodyRight">
     <div class="bodyRight category">
         <h3>推荐位管理/列表</h3>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><a class="btn btn-primary" href="/Admin/Recommend/add">添加</a></label>
+            </div>
+            <table class="table table-bordered menu_manage" >
+                <tr><th>排序</th><th>id</th><th>菜单名</th><th>模块</th><th>类型</th><th>状态</th><th>操作</th></tr>
+                <volist name="menu" id="vo">
+                    <tr><td><input type="number" value="{$vo.order}" data-id="{$vo.menu_id}" class="menu_order" /></td><td>{$vo.menu_id}</td><td>{$vo.title}</td><td>{$vo.m}</td><td> <if condition="$vo.type eq 1">前台网站 <else /> 后台网站 </if> </td><td> <if condition="$vo.status eq 1">开启 <else />关闭 </if> </td><td><a href="/Admin/Menu/edit/id/{$vo.menu_id}">编辑</a> <a href="/Admin/Menu/closeMenu/id/{$vo.menu_id}">关闭</a></td></tr>
+                </volist>
+            </table>
+
+
+        </form>
     </div>
 </block>

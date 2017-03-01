@@ -52,13 +52,24 @@
         <div class="bodyLeft">
             <ul class="nav nav-pills nav-stacked navbar-inverse">
                 <li role="presentation" <?php if(CONTROLLER_NAME == 'Index'): ?>class="active"<?php endif; ?> ><a href="/Admin/Index/index"> <span class="glyphicon glyphicon-home" aria-hidden="true"></span> 首页</a></li>
-                <?php if(is_array($menus)): $i = 0; $__LIST__ = $menus;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li role="presentation" <?php if(CONTROLLER_NAME == $vo['m']): ?>class="active"<?php endif; ?> ><a href="/<?php echo ($vo['m']); ?>/<?php echo ($vo['c']); ?>/<?php echo ($vo['a']); ?>"> <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span> <?php echo ($vo['title']); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
+                <?php if(is_array($menus)): $i = 0; $__LIST__ = $menus;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li role="presentation" <?php if(CONTROLLER_NAME == $vo['c']): ?>class="active"<?php endif; ?> ><a href="/<?php echo ($vo['m']); ?>/<?php echo ($vo['c']); ?>/<?php echo ($vo['a']); ?>"> <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span> <?php echo ($vo['title']); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
             </ul>
         </div>
     
     
     <div class="bodyRight category">
         <h3>推荐位管理/列表</h3>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label"><a class="btn btn-primary" href="/Admin/Recommend/add">添加</a></label>
+            </div>
+            <table class="table table-bordered menu_manage" >
+                <tr><th>排序</th><th>id</th><th>菜单名</th><th>模块</th><th>类型</th><th>状态</th><th>操作</th></tr>
+                <?php if(is_array($menu)): $i = 0; $__LIST__ = $menu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr><td><input type="number" value="<?php echo ($vo["order"]); ?>" data-id="<?php echo ($vo["menu_id"]); ?>" class="menu_order" /></td><td><?php echo ($vo["menu_id"]); ?></td><td><?php echo ($vo["title"]); ?></td><td><?php echo ($vo["m"]); ?></td><td> <?php if($vo["type"] == 1): ?>前台网站 <?php else: ?> 后台网站<?php endif; ?> </td><td> <?php if($vo["status"] == 1): ?>开启 <?php else: ?>关闭<?php endif; ?> </td><td><a href="/Admin/Menu/edit/id/<?php echo ($vo["menu_id"]); ?>">编辑</a> <a href="/Admin/Menu/closeMenu/id/<?php echo ($vo["menu_id"]); ?>">关闭</a></td></tr><?php endforeach; endif; else: echo "" ;endif; ?>
+            </table>
+
+
+        </form>
     </div>
 
 

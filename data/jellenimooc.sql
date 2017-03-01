@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-02-28 23:37:21
+Date: 2017-03-01 22:12:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -33,7 +33,7 @@ CREATE TABLE `think_admin` (
 -- ----------------------------
 -- Records of think_admin
 -- ----------------------------
-INSERT INTO `think_admin` VALUES ('1', 'jellen', 'd2cda6a7ff06e1eba9d7f447cf498dc4', '127.0.0.1', '1488289696', '', '1');
+INSERT INTO `think_admin` VALUES ('1', 'jellen', 'd2cda6a7ff06e1eba9d7f447cf498dc4', '127.0.0.1', '1488376189', '', '1');
 
 -- ----------------------------
 -- Table structure for think_menu
@@ -49,11 +49,27 @@ CREATE TABLE `think_menu` (
   `c` varchar(20) NOT NULL,
   `a` varchar(20) NOT NULL,
   PRIMARY KEY (`menu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of think_menu
 -- ----------------------------
 INSERT INTO `think_menu` VALUES ('1', '菜单管理', '0', '2', '1', 'Admin', 'Menu', 'index');
 INSERT INTO `think_menu` VALUES ('51', '推荐位管理', '0', '2', '1', 'Admin', 'Recommend', 'index');
-INSERT INTO `think_menu` VALUES ('52', '文章管理', '0', '2', '1', 'Admin', 'Article', 'index');
+INSERT INTO `think_menu` VALUES ('74', '文章管理', '0', '2', '1', 'Admin', 'Article', 'index');
+
+-- ----------------------------
+-- Table structure for think_recommend
+-- ----------------------------
+DROP TABLE IF EXISTS `think_recommend`;
+CREATE TABLE `think_recommend` (
+  `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(20) NOT NULL,
+  `size` tinyint(3) unsigned NOT NULL,
+  `status` tinyint(1) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of think_recommend
+-- ----------------------------

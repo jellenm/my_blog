@@ -4,7 +4,7 @@
             <ul class="nav nav-pills nav-stacked navbar-inverse">
                 <li role="presentation" <if condition="CONTROLLER_NAME eq 'Index'">class="active"</if> ><a href="/Admin/Index/index"> <span class="glyphicon glyphicon-home" aria-hidden="true"></span> 首页</a></li>
                 <volist name="menus" id="vo">
-                    <li role="presentation" <if condition="CONTROLLER_NAME eq $vo['m']">class="active"</if> ><a href="/{$vo['m']}/{$vo['c']}/{$vo['a']}"> <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span> {$vo['title']}</a></li>
+                    <li role="presentation" <if condition="CONTROLLER_NAME eq $vo['c']">class="active"</if> ><a href="/{$vo['m']}/{$vo['c']}/{$vo['a']}"> <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span> {$vo['title']}</a></li>
                 </volist>
             </ul>
         </div>
