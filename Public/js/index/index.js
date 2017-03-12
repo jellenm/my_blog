@@ -35,7 +35,6 @@ $('#loginSubmit').click(function(e){
     })
 });
 
-
 $('#logout').click(function(){
     layerTool.confirm('确定退出？','退出成功',function(){
         $.ajax({
@@ -203,4 +202,50 @@ $('#menu_edit').click(function(){
             layerTool.error('网络连接失败！');
         }
     })
+});
+
+$('#recommend_edit').click(function(){
+    var category_name = $('#category_name').val();
+    var category_num = parseInt($('#category_num').val());
+    var category_status = $('#category_status').val();
+    var recommend_id = $('#recommend_id').val();
+
+    if(!category_name ){
+        layerTool.error('没有填写推荐位名！');
+        return;
+    }
+    if(!category_num ){
+        layerTool.error('显示个数填写不正确或未填写数字！');
+        return;
+    }
+    if(!category_status ){
+        layerTool.error('状态为选择！');
+        return;
+    }
+
+    $.ajax({
+        url:'/Admin/Recommend/getEdit',
+        type:'GET',
+        data:{
+            'category_name':category_name,
+            'category_num':category_num,
+            'category_status':category_status,
+            'recommend_id':recommend_id
+        },
+        success:function(res){
+            if(res.status == 1){
+                layerTool.success('修改成功',function(){
+                    window.location.href='/Admin/Recommend/index.html';
+                })
+            }else{
+                layerTool.error('修改失败',function(){
+                    window.location.href='/Admin/Recommend/index.html';
+                })
+            }
+        },
+        error:function(){
+            layerTool.error('修改失败');
+        }
+    })
+
 });

@@ -57,11 +57,29 @@
         </div>
     
     
-        <div class="bodyRight category">
-            <h2>首页</h2>
-            <p>您好admin!欢迎使用singcms内容管理平台</p>
+    <div class="bodyRight category">
+        <h3>推荐位管理/编辑</h3>
+        <div >
+            <div class="form-group">
+                <label for="category_name">推荐位名</label>
+                <input type="text" class="form-control" id="category_name" name="category_name" placeholder="菜单名" value="<?php echo ($recommend['title']); ?>">
+            </div>
+            <div class="form-group">
+                <label for="category_num">显示个数</label>
+                <input type="number" class="form-control" id="category_num" name="category_num" placeholder="推荐位显示个数" value="<?php echo ($recommend["size"]); ?>">
+            </div>
+            <div class="form-group">
+                <label for="category_status">状态</label>
+                <select class="form-control"  id="category_status">
+                    <option value="1" <?php if($recommend['status'] == 1 ): ?>selected<?php endif; ?>  >正常</option>
+                    <option value="2" <?php if($recommend['status'] == 2 ): ?>selected<?php endif; ?>  >关闭</option>
+                </select>
+            </div>
+            <input type="hidden" name="recommend_id" value="<?php echo ($recommend['id']); ?>" id="recommend_id" />
+            <button type="submit" class="btn btn-primary" id="recommend_edit">提交</button>
         </div>
-    
+    </div>
+
 
 
     <script src="/Public/js/index/layer.js" ></script>
