@@ -19,5 +19,9 @@ class RecommendModel extends Model{
         $res = $this->_db->save($arr);
         return $res;
     }
+    public function closeRecommend($data){
+        $res = $this->_db->save($data);
+        return $res;
+    }
 
 }

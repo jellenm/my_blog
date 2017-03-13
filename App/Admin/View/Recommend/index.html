@@ -4,13 +4,11 @@
         <h3>推荐位管理/列表</h3>
         <form class="form-horizontal">
             <table class="table table-bordered menu_manage" >
-                <tr><th>名称</th><th>id</th><th>类型</th><th>状态</th><th>操作</th></tr>
+                <tr><th>名称</th><th>id</th><th>类型</th><th>显示个数</th><th>状态</th><th>操作</th></tr>
                 <volist name="recommends" id="vo">
-                    <tr><td>{$vo.title}</td><td>{$vo.id}</td><td>{$vo.type}</td><td><if condition="$vo.status eq 1 "> 开启 <else /> 关闭 </if> </td><td><a href="/Admin/Recommend/edit/id/{$vo.id}">编辑</a> <a href="/Admin/Menu/closeMenu/id/{$vo.menu_id}">关闭</a></td></tr>
+                    <tr><td>{$vo.title}</td><td>{$vo.id}</td><td>{$vo.type}</td><td>{$vo.size}</td><td><if condition="$vo.status eq 1 "> 开启 <else /> 关闭 </if> </td><td><a href="/Admin/Recommend/edit/id/{$vo.id}">编辑</a> <a href="/Admin/Recommend/closeRecommend/id/{$vo.id}">关闭</a></td></tr>
                 </volist>
             </table>
-
-
         </form>
     </div>
 </block>

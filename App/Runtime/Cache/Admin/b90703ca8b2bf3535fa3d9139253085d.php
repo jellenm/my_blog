@@ -58,13 +58,14 @@
     
     
     <div class="bodyRight category">
-        <h3>推荐位管理/列表</h3>
-        <form class="form-horizontal">
-            <table class="table table-bordered menu_manage" >
-                <tr><th>名称</th><th>id</th><th>类型</th><th>显示个数</th><th>状态</th><th>操作</th></tr>
-                <?php if(is_array($recommends)): $i = 0; $__LIST__ = $recommends;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr><td><?php echo ($vo["title"]); ?></td><td><?php echo ($vo["id"]); ?></td><td><?php echo ($vo["type"]); ?></td><td><?php echo ($vo["size"]); ?></td><td><?php if($vo["status"] == 1 ): ?>开启 <?php else: ?> 关闭<?php endif; ?> </td><td><a href="/Admin/Recommend/edit/id/<?php echo ($vo["id"]); ?>">编辑</a> <a href="/Admin/Recommend/closeRecommend/id/<?php echo ($vo["id"]); ?>">关闭</a></td></tr><?php endforeach; endif; else: echo "" ;endif; ?>
-            </table>
-        </form>
+        <h3>文章类别/列表</h3>
+        <a href="/Admin/Type/add"><button type="button" class="btn btn-primary">添加</button></a>
+        <br>
+        <br>
+        <table class="table table-bordered menu_manage" >
+            <tr><th>id</th><th>名称</th></tr>
+            <?php if(is_array($types)): $i = 0; $__LIST__ = $types;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr><td><?php echo ($vo["id"]); ?></td><td><?php echo ($vo["title"]); ?></td></tr><?php endforeach; endif; else: echo "" ;endif; ?>
+        </table>
     </div>
 
 

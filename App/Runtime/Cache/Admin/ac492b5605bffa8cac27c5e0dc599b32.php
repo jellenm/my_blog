@@ -58,11 +58,11 @@
     
     
     <div class="bodyRight category">
-        <h3>推荐位管理/列表</h3>
+        <h3>文章管理/列表</h3>
         <form class="form-horizontal">
             <table class="table table-bordered menu_manage" >
-                <tr><th>名称</th><th>id</th><th>类型</th><th>显示个数</th><th>状态</th><th>操作</th></tr>
-                <?php if(is_array($recommends)): $i = 0; $__LIST__ = $recommends;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr><td><?php echo ($vo["title"]); ?></td><td><?php echo ($vo["id"]); ?></td><td><?php echo ($vo["type"]); ?></td><td><?php echo ($vo["size"]); ?></td><td><?php if($vo["status"] == 1 ): ?>开启 <?php else: ?> 关闭<?php endif; ?> </td><td><a href="/Admin/Recommend/edit/id/<?php echo ($vo["id"]); ?>">编辑</a> <a href="/Admin/Recommend/closeRecommend/id/<?php echo ($vo["id"]); ?>">关闭</a></td></tr><?php endforeach; endif; else: echo "" ;endif; ?>
+                <tr><th>id</th><th>名称</th><th>类别</th><th>描述</th><th>作者</th><th>创建时间</th><th>修改时间</th><th>状态</th><th>操作</th></tr>
+                <?php if(is_array($articles)): $i = 0; $__LIST__ = $articles;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr><td><?php echo ($vo["id"]); ?></td><td><?php echo ($vo["title"]); ?></td><td><?php echo ($vo["pid"]); ?></td><td><?php echo ($vo["description"]); ?></td><td><?php echo ($vo["author"]); ?></td><td><?php echo ($vo["creattime"]); ?></td><td><?php echo ($vo["modifytime"]); ?></td><td> <?php if($vo["status"] == 1 ): ?>开启 <?php else: ?> 关闭<?php endif; ?> </td><td><a href="/Admin/Recommend/edit/id/<?php echo ($vo["id"]); ?>">编辑</a> <a href="/Admin/Recommend/closeRecommend/id/<?php echo ($vo["id"]); ?>">关闭</a></td></tr><?php endforeach; endif; else: echo "" ;endif; ?>
             </table>
         </form>
     </div>

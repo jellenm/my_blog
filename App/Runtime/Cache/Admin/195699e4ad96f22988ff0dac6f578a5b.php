@@ -58,13 +58,20 @@
     
     
     <div class="bodyRight category">
-        <h3>推荐位管理/列表</h3>
-        <form class="form-horizontal">
-            <table class="table table-bordered menu_manage" >
-                <tr><th>名称</th><th>id</th><th>类型</th><th>显示个数</th><th>状态</th><th>操作</th></tr>
-                <?php if(is_array($recommends)): $i = 0; $__LIST__ = $recommends;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr><td><?php echo ($vo["title"]); ?></td><td><?php echo ($vo["id"]); ?></td><td><?php echo ($vo["type"]); ?></td><td><?php echo ($vo["size"]); ?></td><td><?php if($vo["status"] == 1 ): ?>开启 <?php else: ?> 关闭<?php endif; ?> </td><td><a href="/Admin/Recommend/edit/id/<?php echo ($vo["id"]); ?>">编辑</a> <a href="/Admin/Recommend/closeRecommend/id/<?php echo ($vo["id"]); ?>">关闭</a></td></tr><?php endforeach; endif; else: echo "" ;endif; ?>
-            </table>
-        </form>
+        <h3>文章类别/添加</h3>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label for="typeName" class="col-sm-2 control-label">名称</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="typeName" placeholder="填写文章类别名称">
+                </div>
+                <br>
+                <br>
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default" id="addType" >添加</button>
+                </div>
+            </div>
+        </div>
     </div>
 
 

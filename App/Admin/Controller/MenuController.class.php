@@ -101,8 +101,8 @@ class MenuController extends Controller{
                 $res = D('Menu')->findAllMenu($where);
                 $this->assign('menus',$res);
 
-                $where['menu_id'] = I('get.id');
-                $res = D('Menu')->findAllMenu($where);
+                $where2['menu_id'] = I('get.id');
+                $res = D('Menu')->findAllMenu($where2);
                 if($res){
                     $this->assign('menu',$res[0]);
                     $this->display();

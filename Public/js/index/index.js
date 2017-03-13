@@ -232,9 +232,10 @@ $('#recommend_edit').click(function(){
             'category_status':category_status,
             'recommend_id':recommend_id
         },
-        success:function(res){
+        success:function(data){
+            var res = JSON.parse(data);
             if(res.status == 1){
-                layerTool.success('修改成功',function(){
+                layerTool.success(res.msg,function(){
                     window.location.href='/Admin/Recommend/index.html';
                 })
             }else{
@@ -248,4 +249,34 @@ $('#recommend_edit').click(function(){
         }
     })
 
+});
+
+$('#addType').click(function(){
+    var typeName = $('#typeName').val();
+    if(!$.trim(typeName)){
+        layerTool.error('请填入文章类别名');
+        return;
+    }
+    $.ajax({
+        url:'/Admin/Type/addEve',
+        type:'GET',
+        data:{
+            'title':typeName
+        },
+        success:function(data){
+            var res = JSON.parse(data);
+            if(res.status == 1){
+                layerTool.success(res.msg,function(){
+                    window.location.href = '/Admin/Type/index';
+                })
+
+            }else{
+                layerTool.error(res.msg);
+            }
+
+        },
+        error:function(){
+
+        }
+    })
 });

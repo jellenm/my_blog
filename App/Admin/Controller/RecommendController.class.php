@@ -18,7 +18,6 @@ class RecommendController extends Controller{
     }
 
     public function edit(){
-
         if(checkSession('UserInfo')){
             if(I('get.id')){
                 $where['status'] = 1;
@@ -33,9 +32,7 @@ class RecommendController extends Controller{
             }else{
                 $this->error('推荐位不存在','/Admin/Recommend/index');
             }
-
         }
-
     }
     public function getEdit(){
         $id = I('get.recommend_id');
@@ -49,7 +46,6 @@ class RecommendController extends Controller{
             $data['status'] = $status;
 
             $res = D('Recommend')->editRecommend($data);
-            dump($res);
            if($res){
                returnJson(1,'修改成功');
            }else{
@@ -57,6 +53,22 @@ class RecommendController extends Controller{
            }
         }else{
             $this->error('修改失败','/Admin/Recommend/index');
+        }
+    }
+    public function closeRecommend(){
+        if(checkSession('UserInfo')){
+            if(I('get.id')){
+                $data['id'] = I('get.id');
+                $data['status'] = 2;
+                $res = D('Recommend')->closeRecommend($data);
+                if($res){
+                    $this->success('关闭成功','/Admin/Recommend/index');
+                }else{
+                    $this->success('关闭失败','Admin/Recommend/index');
+                }
+            }else{
+                $this->error('不合法请求',U('/Admin/Recommend/index'));
+            }
         }
     }
 }
