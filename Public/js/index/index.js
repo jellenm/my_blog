@@ -280,3 +280,34 @@ $('#addType').click(function(){
         }
     })
 });
+
+$('#articleUpImg').change(function(){
+    var file = $(this)[0].files[0];
+    // var src = window.URL.createObjectURL(file);
+    // $('#articleImgShow').attr('src',src).removeClass('hide');
+    var formData = new FormData();
+    formData.append("upload_file", file);
+
+    $.ajax({
+        url:'/Admin/Article/uploadImg',
+        type:'POST',
+        contentType: false,    //不可缺
+        processData: false,    //不可缺
+        data:formData,
+        success:function(data){
+           var res = JSON.parse(data);
+           if(res.status == 1){
+               var src = res['msg'];
+               layerTool.success('上传成功');
+               $('#articleImgShow').attr('src',src).removeClass('hide');
+           }else{
+               layerTool.error(res['msg']);
+           }
+        },
+        error:function(){
+
+        }
+    });
+
+    //window.URL.createObjectURL(this.files[0])
+});

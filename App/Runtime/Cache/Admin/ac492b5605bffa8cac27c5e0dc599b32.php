@@ -59,10 +59,16 @@
     
     <div class="bodyRight category">
         <h3>文章管理/列表</h3>
+        <div class="btn-group article-btn" role="group" aria-label="..." >
+            <a type="button" href="/Admin/Article/add" class="btn btn-default">添加</a>
+            <a type="button" class="btn btn-default">删除</a>
+            <a type="button" class="btn btn-default">复制</a>
+            <a type="button" class="btn btn-default">粘贴</a>
+        </div>
         <form class="form-horizontal">
             <table class="table table-bordered menu_manage" >
-                <tr><th>id</th><th>名称</th><th>类别</th><th>描述</th><th>作者</th><th>创建时间</th><th>修改时间</th><th>状态</th><th>操作</th></tr>
-                <?php if(is_array($articles)): $i = 0; $__LIST__ = $articles;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr><td><?php echo ($vo["id"]); ?></td><td><?php echo ($vo["title"]); ?></td><td><?php echo ($vo["pid"]); ?></td><td><?php echo ($vo["description"]); ?></td><td><?php echo ($vo["author"]); ?></td><td><?php echo ($vo["creattime"]); ?></td><td><?php echo ($vo["modifytime"]); ?></td><td> <?php if($vo["status"] == 1 ): ?>开启 <?php else: ?> 关闭<?php endif; ?> </td><td><a href="/Admin/Recommend/edit/id/<?php echo ($vo["id"]); ?>">编辑</a> <a href="/Admin/Recommend/closeRecommend/id/<?php echo ($vo["id"]); ?>">关闭</a></td></tr><?php endforeach; endif; else: echo "" ;endif; ?>
+                <tr><th>全选</th><th>id</th><th>名称</th><th>类别</th><th>描述</th><th>作者</th><th>创建时间</th><th>修改时间</th><th>状态</th><th>操作</th></tr>
+                <?php if(is_array($articles)): $i = 0; $__LIST__ = $articles;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr><td><input type="checkbox" class="article-input" /></td><td><?php echo ($vo["id"]); ?></td><td><?php echo ($vo["title"]); ?></td><td><?php echo ($vo["pid"]); ?></td><td><?php echo ($vo["description"]); ?></td><td><?php echo ($vo["author"]); ?></td><td><?php echo ($vo["creattime"]); ?></td><td><?php echo ($vo["modifytime"]); ?></td><td> <?php if($vo["status"] == 1 ): ?>开启 <?php else: ?> 关闭<?php endif; ?> </td><td><a href="/Admin/Recommend/edit/id/<?php echo ($vo["id"]); ?>">编辑</a> <a href="/Admin/Recommend/closeRecommend/id/<?php echo ($vo["id"]); ?>">关闭</a></td></tr><?php endforeach; endif; else: echo "" ;endif; ?>
             </table>
         </form>
     </div>

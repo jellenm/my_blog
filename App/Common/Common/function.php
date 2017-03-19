@@ -23,3 +23,27 @@ function checkSession($sessionName){
     }
 }
 
+//上传图片到服务器路径
+function upload_article_img($maxSize=3145728,$savePath='',$saveName){
+    $rootPath = C('UPROOTPATH');
+    if(!$saveName){
+        $saveName = time().mt_rand(10,20);
+    }
+    $config = array(
+        'maxSize' => $maxSize,
+        'rootPath' =>$rootPath,
+        'savePath' =>$savePath,
+        'saveName' =>$saveName
+    );
+    $upload = new \Think\Upload($config);
+    $info = $upload->upload();
+    if(!$info){
+        $res['status'] = 0;
+        $res['msg'] = $upload->getError();
+    }else{
+        $res['status'] = 1;
+        $res['msg'] = $info;
+    }
+    return $res;
+}
+

@@ -6,11 +6,14 @@ header{
     height:50px;
     line-height:50px;
 }
+.hide{
+    display: none;
+}
 .login_in{
-    margin-top:100px;
+    margin:100px auto 0 auto;
     padding:50px 20px;
     background-color: #fff;
-
+    max-width:300px;
 }
 .dropdown-menu .navbarLi{
     border-bottom: 1px solid #ccc;
@@ -91,4 +94,47 @@ header{
 .pagination .current{
     background-color: #337ab7;
     color: #fff;
+}
+.article-btn{
+    margin-bottom:5px;
+}
+.article-add-form{
+    margin:10px;
+}
+.article-add-form label{
+    text-align: right;
+}
+.article-add-form .form-group{
+    margin:10px 0;
+    overflow: hidden;
+}
+.article-add-form .up-img{
+    width:100px;
+    height:100px;
+    border:10px;
+    background-color: #f7f7f9;
+    font-size:50px;
+    line-height:100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+}
+.article-add-form .up-img input{
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    top:0;
+    opacity: 0;
+}
+#articleImgShow{
+    max-height:100px;
+    width:auto;
+    display: inline-block;
+    vertical-align: top;
+}
+#editor-trigger{
+    min-height:400px;!important;
 }
