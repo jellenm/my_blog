@@ -311,3 +311,48 @@ $('#articleUpImg').change(function(){
 
     //window.URL.createObjectURL(this.files[0])
 });
+
+$('#articleAdd').click(function(){
+    var title = $('#articleTitle').val();
+    var type = $('#articleType').val();
+    var description = $('#articleDescription').val();
+    var thumb = $('#articleImgShow').attr('src');
+    var author = $('#articleAuthor').text();
+    var keywords = $('#articleKeywords').val();
+    var content = editor.$txt.html();
+
+    if(!title){ layerTool.error('请填写标题'); return;}
+    if(!description){ layerTool.error('请填写描述');return;}
+    if(!thumb){ layerTool.error('请上传缩略图');return;}
+    if(!keywords){ layerTool.error('请填写关键词');return;}
+    if(!content){ layerTool.error('请填写内容');return;}
+    
+    $.ajax({
+        url:'/Admin/Article/addArticle',
+        type:'POST',
+        data:{
+            pid:type,
+            title:title,
+            description:description,
+            thumb:thumb,
+            author:author,
+            status:1,
+            keywords:keywords,
+            content:content
+        },
+        success:function(data){
+            var res = JSON.parse(data);
+            if(res.status == 1){
+                layerTool.success('创建成功',function(){
+                    window.location.href='/Admin/Article/index'
+                })
+            }else{
+                layerTool.error('创建失败');
+            }
+        },
+        error:function(){
+            ayerTool.error('创建失败');
+        }
+    })
+
+});

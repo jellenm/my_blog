@@ -15,6 +15,7 @@
                     <tr><td><input type="checkbox" class="article-input" /></td><td>{$vo.id}</td><td>{$vo.title}</td><td>{$vo.pid}</td><td>{$vo.description}</td><td>{$vo.author}</td><td>{$vo.creattime}</td><td>{$vo.modifytime}</td><td> <if condition="$vo.status eq 1 "> 开启 <else /> 关闭 </if> </td><td><a href="/Admin/Recommend/edit/id/{$vo.id}">编辑</a> <a href="/Admin/Recommend/closeRecommend/id/{$vo.id}">关闭</a></td></tr>
                 </volist>
             </table>
+            <div>{$page}</div>
         </form>
     </div>
 </block>

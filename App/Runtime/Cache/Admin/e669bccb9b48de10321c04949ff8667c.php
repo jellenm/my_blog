@@ -72,7 +72,7 @@
             <div class="article-parent form-group">
                 <label for="articleTitle" class="col-sm-2 control-label">类型</label>
                 <div class="col-sm-10">
-                    <select class="form-control" >
+                    <select class="form-control" id="articleType" >
                         <?php if(is_array($type)): $i = 0; $__LIST__ = $type;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$types): $mod = ($i % 2 );++$i;?><option value="<?php echo ($types["id"]); ?>"><?php echo ($types["title"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
                     </select>
                 </div>
@@ -96,13 +96,13 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">作者</label>
                 <div class="col-sm-10">
-                    <span><?php echo ($username); ?></span>
+                    <span id="articleAuthor"><?php echo ($username); ?></span>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">关键词</label>
                 <div class="col-sm-10">
-                    <textarea class="form-control" rows="3" placeholder="输入文章关键词，以逗号分隔" ></textarea>
+                    <textarea class="form-control" rows="3" id="articleKeywords" placeholder="输入文章关键词，以逗号分隔" ></textarea>
                 </div>
             </div>
             <div class="form-group">
@@ -115,24 +115,27 @@
                     </textarea> -->
                 </div>
             </div>
+            <div style="text-align: right">
+                <button type="button" class="btn btn-primary" id="articleAdd">添加文章</button>
+            </div>
         </div>
     </div>
     <script>
         var editor = new wangEditor('editor-trigger');
 
         // 上传图片
-        editor.config.uploadImgUrl = '/upload';
+        editor.config.uploadImgUrl = '/Admin/Article/uploadArticleImg';
         editor.config.uploadParams = {
             // token1: 'abcde',
             // token2: '12345'
         };
         editor.config.uploadHeaders = {
             // 'Accept' : 'text/x-json'
-        }
+        };
         // editor.config.uploadImgFileName = 'myFileName';
 
         // 隐藏网络图片
-        // editor.config.hideLinkImg = true;
+        editor.config.hideLinkImg = true;
 
         // 表情显示项
         editor.config.emotionsShow = 'value';
