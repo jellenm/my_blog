@@ -31,4 +31,20 @@ class ArticleModel extends Model{
         $res = $this->_db->limit($firstRow.','.$listsRows)->select();
         return $res;
     }
+    public function deleteArticle($lists){
+        $arr = array();
+        foreach ($lists as $v){
+            $where['id'] = $v;
+            $resL = $this->_db->where($where)->delete();
+            if($v){
+                $wherec['pid'] = $v;
+                $resC = M('Content')->where($wherec)->delete();
+                if($resC){
+                    array_push($arr,$resC);
+                }
+            }
+        }
+        return $arr;
+
+    }
 }

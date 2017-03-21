@@ -71,5 +71,19 @@ class ArticleController extends Controller{
             returnJson(0,'创建失败');
         }
     }
+    public function delete(){
+        $data = I('post.datas');
+        $str = '';
+        if($data){
+            $res = D('Article')->deleteArticle($data);
+            foreach ($res as $n){
+                $str .= $n.'，';
+            }
+            $str .= '删除成功';
+            returnJson(1,$str);
+        }else{
+            returnJson(0,'删除失败');
+        }
+    }
 
 }

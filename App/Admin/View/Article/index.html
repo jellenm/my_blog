@@ -4,15 +4,15 @@
         <h3>文章管理/列表</h3>
         <div class="btn-group article-btn" role="group" aria-label="..." >
             <a type="button" href="/Admin/Article/add" class="btn btn-default">添加</a>
-            <a type="button" class="btn btn-default">删除</a>
+            <a type="button" id="articleDelete" class="btn btn-default">删除</a>
             <a type="button" class="btn btn-default">复制</a>
             <a type="button" class="btn btn-default">粘贴</a>
         </div>
         <form class="form-horizontal">
             <table class="table table-bordered menu_manage" >
-                <tr><th>全选</th><th>id</th><th>名称</th><th>类别</th><th>描述</th><th>作者</th><th>创建时间</th><th>修改时间</th><th>状态</th><th>操作</th></tr>
+                <tr><th><input type="checkbox" class="select-all" />全选</th><th>id</th><th>名称</th><th>类别</th><th>描述</th><th>作者</th><th>创建时间</th><th>修改时间</th><th>状态</th><th>操作</th></tr>
                 <volist name="articles" id="vo">
-                    <tr><td><input type="checkbox" class="article-input" /></td><td>{$vo.id}</td><td>{$vo.title}</td><td>{$vo.pid}</td><td>{$vo.description}</td><td>{$vo.author}</td><td>{$vo.creattime}</td><td>{$vo.modifytime}</td><td> <if condition="$vo.status eq 1 "> 开启 <else /> 关闭 </if> </td><td><a href="/Admin/Recommend/edit/id/{$vo.id}">编辑</a> <a href="/Admin/Recommend/closeRecommend/id/{$vo.id}">关闭</a></td></tr>
+                    <tr><td><input type="checkbox" class="article-input" name="delete[]" data-uid="{$vo.id}" /></td><td>{$vo.id}</td><td>{$vo.title}</td><td>{$vo.pid}</td><td>{$vo.description}</td><td>{$vo.author}</td><td>{$vo.creattime}</td><td>{$vo.modifytime}</td><td> <if condition="$vo.status eq 1 "> 开启 <else /> 关闭 </if> </td><td><a href="/Admin/Recommend/edit/id/{$vo.id}">编辑</a> <a href="/Admin/Recommend/closeRecommend/id/{$vo.id}">关闭</a></td></tr>
                 </volist>
             </table>
             <div>{$page}</div>

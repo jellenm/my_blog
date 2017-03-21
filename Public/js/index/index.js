@@ -1,4 +1,4 @@
-
+var allchecked = false;
 $('#loginSubmit').click(function(e){
     var username = $.trim($('input[name=username]').val());
     var password = $.trim($('input[name=password]').val());
@@ -326,7 +326,7 @@ $('#articleAdd').click(function(){
     if(!thumb){ layerTool.error('请上传缩略图');return;}
     if(!keywords){ layerTool.error('请填写关键词');return;}
     if(!content){ layerTool.error('请填写内容');return;}
-    
+
     $.ajax({
         url:'/Admin/Article/addArticle',
         type:'POST',
@@ -355,4 +355,42 @@ $('#articleAdd').click(function(){
         }
     })
 
+});
+
+$('.select-all').click(function(){
+    allchecked = !allchecked;
+   if(allchecked){
+       $('.article-input').prop('checked',true);
+   }else{
+       $('.article-input').removeAttr('checked');
+   }
+});
+
+$('#articleDelete').click(function(){
+    var $inputs = $("input.article-input");
+    if($inputs.length == 0){ layerTool.error('请选择一个删除对象'); return;}
+    var arr=[];
+    for(var i=0;i<$inputs.length;i++){
+        var uid = $($inputs[i]).attr('data-uid');
+        arr.push(uid);
+    }
+
+    $.ajax({
+        url:'/Admin/Article/delete',
+        data:{'datas':arr},
+        type:'POST',
+        success:function(data){
+            var res = JSON.parse(data);
+            if(res.status == 1){
+                layerTool.success(res.msg,function(){
+                    window.location.href='/Admin/Article/index';
+                });
+            }else{
+                layerTool.error(res.msg);
+            }
+        },
+        error:function(){
+            layerTool.error('删除失败');
+        }
+    })
 });
