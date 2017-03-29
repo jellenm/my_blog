@@ -56,6 +56,7 @@ class ArticleController extends Controller{
     public function uploadArticleImg(){
         $res = upload_article_img();
         if($res['status'] == 1){
+            dump($res);
             $info = $res['msg']['wangEditorH5File'];
             $path = '/Uploads/'.$info['savepath'].$info['savename'];
             echo $path;
@@ -84,6 +85,26 @@ class ArticleController extends Controller{
         }else{
             returnJson(0,'删除失败');
         }
+    }
+    public function edit(){
+        if(checkSession('UserInfo')){
+            $where['status'] = 1;
+            $where['type'] = 2;
+            $res = D('Menu')->findAllMenu($where);
+            $this->assign('menus',$res);
+
+            $id = I('get.id');
+            $res = D('Article')->findArticlefromId($id);
+            $types = M('Type')->select();
+            if($res){
+                $this->assign('article',$res);
+                $this->assign('type',$types);
+                $this->display();
+            }else{
+                $this->error('没有该文章','Admin/Article/index');
+            }
+        }
+
     }
 
 }

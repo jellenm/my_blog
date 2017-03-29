@@ -14,14 +14,12 @@ class ArticleModel extends Model{
     public function addArticle($data){
         $res = $this->_db->add($data);
         if($res){
-            $where['pid'] = $res;
             $where['content'] = $data['content'];
+            $where['pid'] = $res;
             $result = M('Content')->add($where);
-            if($result){
-                return true;
-            }else{
-                return false;
-            }
+        }
+        if($res && $result){
+            return true;
         }else{
             return false;
         }
@@ -35,16 +33,29 @@ class ArticleModel extends Model{
         $arr = array();
         foreach ($lists as $v){
             $where['id'] = $v;
-            $resL = $this->_db->where($where)->delete();
+            $resL = $this->_db->where($where)->select();
+            $wherec['pid'] = $resL[0]['id'];
             if($v){
-                $wherec['pid'] = $v;
+                $res1 = $this->_db->where($where)->delete();
                 $resC = M('Content')->where($wherec)->delete();
-                if($resC){
-                    array_push($arr,$resC);
+                if($resC && $res1){
+                    array_push($arr,$v);
                 }
             }
         }
         return $arr;
 
+    }
+    public function findArticlefromId($id){
+        if($id){
+            $res = $this->_db->where('id='.$id)->select();
+            $content = M('content')->where('pid='.$id)->select();
+            if($res&&$content){
+                $res[0]['content'] = '"'.htmlspecialchars_decode($content[0]['content']).'"';
+                return $res[0];
+            }else{
+                return false;
+            }
+        }
     }
 }

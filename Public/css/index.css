@@ -68,6 +68,7 @@ header{
 }
 .category {
     padding:30px 20px;
+    min-height:600px;
 }
 .form-horizontal .form-group {
     margin-right: 15px;
