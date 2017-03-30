@@ -351,7 +351,7 @@ $('#articleAdd').click(function(){
             }
         },
         error:function(){
-            ayerTool.error('创建失败');
+            layerTool.error('创建失败');
         }
     })
 
@@ -391,6 +391,52 @@ $('#articleDelete').click(function(){
         },
         error:function(){
             layerTool.error('删除失败');
+        }
+    })
+});
+
+$("#articleEdit").click(function(){
+    var title = $('#articleTitle').val();
+    var type = $('#articleType').val();
+    var description = $('#articleDescription').val();
+    var thumb = $('#articleImgShow').attr('src');
+    var author = $('#articleAuthor').text();
+    var keywords = $('#articleKeywords').val();
+    var content = editor.$txt.html();
+    var id =$('#cid').val();
+
+    if(!title){ layerTool.error('请填写标题'); return;}
+    if(!description){ layerTool.error('请填写描述');return;}
+    if(!thumb){ layerTool.error('请上传缩略图');return;}
+    if(!keywords){ layerTool.error('请填写关键词');return;}
+    if(!content){ layerTool.error('请填写内容');return;}
+
+    $.ajax({
+        url:'/Admin/Article/editArticle',
+        type:'POST',
+        data:{
+            pid:type,
+            title:title,
+            description:description,
+            thumb:thumb,
+            author:author,
+            status:1,
+            keywords:keywords,
+            content:content,
+            id:id
+        },
+        success:function(data){
+            var res = JSON.parse(data);
+            if(res.status == 1){
+                layerTool.success('修改成功',function(){
+                    window.location.href='/Admin/Article/index'
+                })
+            }else{
+                layerTool.error('修改失败');
+            }
+        },
+        error:function(){
+            layerTool.error('修改失败');
         }
     })
 });

@@ -10,7 +10,7 @@
             <table class="table table-bordered menu_manage" >
                 <tr><th><input type="checkbox" class="select-all" />全选</th><th>id</th><th>名称</th><th>类别</th><th>描述</th><th>作者</th><th>创建时间</th><th>修改时间</th><th>状态</th><th>操作</th></tr>
                 <volist name="articles" id="vo">
-                    <tr><td><input type="checkbox" class="article-input" name="delete[]" data-uid="{$vo.id}" /></td><td>{$vo.id}</td><td>{$vo.title}</td><td>{$vo.pid}</td><td>{$vo.description}</td><td>{$vo.author}</td><td>{$vo.creattime}</td><td>{$vo.modifytime}</td><td> <if condition="$vo.status eq 1 "> 开启 <else /> 关闭 </if> </td><td><a href="/Admin/Article/edit/id/{$vo.id}">编辑</a> <a href="/Admin/Article/closeRecommend/id/{$vo.id}">关闭</a></td></tr>
+                    <tr><td><input type="checkbox" class="article-input" name="delete[]" data-uid="{$vo.id}" /></td><td>{$vo.id}</td><td>{$vo.title}</td><td> <volist name="types" id="type"> <if condition="$type['id'] eq  $vo['pid']">{$type.title}</if></volist></td><td>{$vo.description}</td><td>{$vo.author}</td><td>{$vo.creattime}</td><td>{$vo.modifytime}</td><td> <if condition="$vo.status eq 1 "> 开启 <else /> 关闭 </if> </td><td><a href="/Admin/Article/edit/id/{$vo.id}">编辑</a> <a href="/Admin/Article/closeRecommend/id/{$vo.id}">关闭</a></td></tr>
                 </volist>
             </table>
             <div>{$page}</div>

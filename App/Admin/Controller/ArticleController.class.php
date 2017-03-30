@@ -5,7 +5,6 @@ use Think\Controller;
 
 class ArticleController extends Controller{
     public function index(){
-
         if(checkSession('UserInfo')){
             $where['status'] = 1;
             $where['type'] = 2;
@@ -20,12 +19,13 @@ class ArticleController extends Controller{
             $page = new \Think\Page($count,25);
             $show = $page->show();
             $lists =D('Article')->articlePageLists($page->firstRow,$page->listRows);
+
+            $types = M('Type')->select();
             $this->assign('articles',$lists);
+            $this->assign('types',$types);
             $this->assign('page',$show);
             $this->display();
         }
-
-
     }
     public function add(){
         if(checkSession('UserInfo')){
@@ -105,6 +105,15 @@ class ArticleController extends Controller{
             }
         }
 
+    }
+    public function editArticle(){
+        $data = I('post.');
+        $res = D('Article')->editArticle($data);
+        if($res){
+            returnJson(1,'修改成功');
+        }else{
+            returnJson(0,'修改失败');
+        }
     }
 
 }

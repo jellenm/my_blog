@@ -58,4 +58,21 @@ class ArticleModel extends Model{
             }
         }
     }
+    public function editArticle($data){
+        if($data){
+            $data['modifytime'] = date('y-m-d h:i:s',time());
+            $res = $this->_db->save($data);
+            $pid['pid'] = $data['id'];
+            $rescontent = M('Content')->where($pid)->select();
+            $contentId = $rescontent[0]['id'];
+            $contentData['id'] =$contentId;
+            $contentData['content'] = $data['content'];
+            $res1 = M('Content')->save($contentData);
+            if($res||$res1){
+                return true;
+            }
+        }else{
+            return false;
+        }
+    }
 }
