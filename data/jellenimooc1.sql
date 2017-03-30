@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-03-29 23:11:04
+Date: 2017-03-30 23:13:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -39,14 +39,14 @@ CREATE TABLE `think_article` (
   `pid` tinyint(3) unsigned NOT NULL,
   `title` varchar(30) NOT NULL,
   `description` varchar(60) NOT NULL,
-  `creattime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `creattime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `modifytime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `author` varchar(20) NOT NULL,
   `status` int(1) NOT NULL DEFAULT '1',
   `thumb` varchar(50) NOT NULL,
   `keywords` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for think_content
@@ -57,7 +57,7 @@ CREATE TABLE `think_content` (
   `content` text NOT NULL,
   `pid` mediumint(8) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for think_menu
