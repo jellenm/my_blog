@@ -35,6 +35,33 @@ $('#loginSubmit').click(function(e){
     })
 });
 
+$('#registerSubmit').click(function(e){
+    var username = $.trim($('input[name=username]').val());
+    var password = $.trim($('input[name=password]').val());
+
+    var data={
+        'username':username,
+        'password':password
+    };
+
+    $.ajax({
+        url:'/Admin/Login/register',
+        type:'POST',
+        data:data,
+        success:function(data){
+            var msg = JSON.parse(data);
+            if(msg.status ){
+                layerTool.success('注册成功！',function(){ window.location.href='/Admin/Login/login' });
+            }else{
+                layerTool.error(msg.msg);
+            }
+        },
+        error:function(){
+            layerTool.error('注册失败！');
+        }
+    })
+});
+
 $('#logout').click(function(){
     layerTool.confirm('确定退出？','退出成功',function(){
         $.ajax({

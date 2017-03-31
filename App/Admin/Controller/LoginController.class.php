@@ -35,5 +35,21 @@ class LoginController extends Controller{
         session('UserInfo',null);
         returnJson(1,'退出成功');
     }
+
+    public function register(){
+        if(I('post.username') && I('post.password')){
+            $username = I('post.username');
+            $password = I('post.password');
+            $password = passwordToMd5($password);
+
+            $Dadmin = D('Admin');
+
+
+        }
+
+        $this->display();
+
+
+    }
     
 }

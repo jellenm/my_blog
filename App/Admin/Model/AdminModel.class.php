@@ -24,4 +24,13 @@ class AdminModel extends Model{
         $this->_db->where('id='.$id)->save($time);
     }
 
+    public function register($data){
+        $res = $this->_db->add($data);
+        if($res){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }
