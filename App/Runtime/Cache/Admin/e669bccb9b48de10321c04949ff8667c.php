@@ -206,9 +206,9 @@
         // });
 
         // onchange 事件
-        editor.onchange = function () {
-            console.log(this.$txt.html());
-        };
+//        editor.onchange = function () {
+//            console.log(this.$txt.html());
+//        };
 
         // 取消过滤js
         // editor.config.jsFilter = false;
