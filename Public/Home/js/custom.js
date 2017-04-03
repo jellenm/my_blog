@@ -39,7 +39,7 @@ jQuery(document).ready(function($) {
     /* --------------------------------------------------------------------------- */
     
     var $navigation    = $('#navigation');
-    
+
     // Regular nav
     $navigation.on('mouseenter', 'li', function() {
         var $this    = $(this),
@@ -51,12 +51,12 @@ jQuery(document).ready(function($) {
     });
 
     // Responsive nav
-    selectnav('navigation', {
-        label: 'NAVIGATE...',
-        autoselect: false,
-        nested: true,
-        indent: 'â€“-'
-    });
+    // selectnav('navigation', {
+    //     label: 'NAVIGATE...',
+    //     autoselect: false,
+    //     nested: true,
+    //     indent: 'â€“-'
+    // });
 
 
 

@@ -10,8 +10,12 @@ class TypeController extends Controller{
             $res = D('Menu')->findAllMenu($where);
             $this->assign('menus',$res);
 
+            $navigationLists = M('Navigation')->select();
+            $this->assign('navigation',$navigationLists);
+
             $res = M('type')->select();
             $this->assign('types',$res);
+
             $this->display();
         }
     }
@@ -23,6 +27,10 @@ class TypeController extends Controller{
             $res = D('Menu')->findAllMenu($where);
             $this->assign('menus',$res);
 
+
+            $navigationLists = M('Navigation')->select();
+            $this->assign('navigation',$navigationLists);
+
             $this->display();
         }
     }
@@ -31,6 +39,7 @@ class TypeController extends Controller{
         if(checkSession('UserInfo')){
             if(I('get.title')){
                 $data['title'] = I('get.title');
+                $data['pid'] = I('get.pid');
                 $res = M('Type')->add($data);
                 if($res){
                     returnJson(1,'添加成功');

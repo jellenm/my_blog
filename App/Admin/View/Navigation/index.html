@@ -2,8 +2,20 @@
 <block name="bodyRight">
     <div class="bodyRight category">
         <h3>前台导航/列表</h3>
-        <div>
-            <label class="col-sm-2 control-label"><a class="btn btn-primary" href="/Admin/Menu/add">添加导航</a></label>
+        <div >
+            <div style="overflow: hidden">
+                <label class="col-sm-2 control-label"><a class="btn btn-primary" href="/Admin/Navigation/add">添加导航</a></label>
+            </div>
+            <volist name="navigation" id="nav">
+                <div class="navigation-box">
+                    <h3>{$nav['title']}</h3>
+                    <ol>
+                        <volist name="nav['children']" id="child">
+                            <li>{$child['title']}</li>
+                        </volist>
+                    </ol>
+                </div>
+            </volist>
         </div>
     </div>
 </block>

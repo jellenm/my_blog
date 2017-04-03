@@ -280,6 +280,8 @@ $('#recommend_edit').click(function(){
 
 $('#addType').click(function(){
     var typeName = $('#typeName').val();
+    var typepid = $('#typepid').val();
+
     if(!$.trim(typeName)){
         layerTool.error('请填入文章类别名');
         return;
@@ -288,7 +290,8 @@ $('#addType').click(function(){
         url:'/Admin/Type/addEve',
         type:'GET',
         data:{
-            'title':typeName
+            'title':typeName,
+            'pid':typepid
         },
         success:function(data){
             var res = JSON.parse(data);
@@ -466,4 +469,33 @@ $("#articleEdit").click(function(){
             layerTool.error('修改失败');
         }
     })
+});
+
+$('#navigationAdd').click(function(){
+   var name =  $('#navigationTitle').val();
+    if(!name || ($.trim(name)>5)){
+        layerTool.error('填入小于5位的名称');
+        return;
+    }
+    $.ajax({
+        url:'/Admin/Navigation/add',
+        data:{
+            title:name
+        },
+        type:'POST',
+        success:function(data){
+            var res = JSON.parse(data);
+            if(res.status == 1){
+                layerTool.success('添加成功',function(){
+                    window.location.href='/Admin/Navigation/index'
+                });
+            }else{
+                layerTool.error('添加失败');
+            }
+        },
+        error:function(){
+            layerTool.error('添加失败');
+        }
+    })
+
 });

@@ -6,26 +6,16 @@
 
         <!-- Navigation -->
         <ul id="navigation">
-            <li class="current">
-                <a href="/">Home</a>
-            </li>
-            <li>
-                <a href="/Home/Blog/index">Blog</a>
-                <ul>
-                    <li><a href="./blog_post.html">Single Post</a></li>
-                    <li><a href="./blog_v2.html">Alternative Version</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="/Home/Share/index">Share</a>
-                <ul>
-                    <li><a href="./portfolio_2_col.html">2 Columns</a></li>
-                    <li><a href="./portfolio_3_col.html">3 Columns</a></li>
-                    <li><a href="./portfolio_4_col.html">4 Columns</a></li>
-                    <li><a href="./portfolio_details.html">Single Project</a></li>
-                    <li><a href="./portfolio_v2.html">Alternative Version</a></li>
-                </ul>
-            </li>
+            <volist name="navigation" id="nav">
+                <li>
+                    <a href="/{$nav['url']}" >{$nav['title']}</a>
+                    <ul>
+                        <volist name="nav['children']" id="child">
+                            <li><a href="/{$nav['url']}/{$child['title']}" >{$child['title']}</a></li>
+                        </volist>
+                    </ul>
+                </li>
+            </volist>
         </ul>
         <!-- /Navigation -->
 

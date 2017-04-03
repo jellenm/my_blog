@@ -58,16 +58,11 @@
     
     
     <div class="bodyRight category">
-        <h3>文章类别/列表</h3>
-        <a href="/Admin/Type/add"><button type="button" class="btn btn-primary">添加</button></a>
-        <br>
-        <br>
-        <table class="table table-bordered menu_manage" >
-            <tr><th>id</th><th>主导航</th><th>名称</th></tr>
-            <?php if(is_array($types)): $i = 0; $__LIST__ = $types;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr><td><?php echo ($vo["id"]); ?></td><td>
-                    <?php if(is_array($navigation)): $i = 0; $__LIST__ = $navigation;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i; if($nav['id'] == $vo['pid']): echo ($nav["title"]); endif; endforeach; endif; else: echo "" ;endif; ?>
-                </td><td><?php echo ($vo["title"]); ?></td></tr><?php endforeach; endif; else: echo "" ;endif; ?>
-        </table>
+        <h3>前台导航/添加</h3>
+        <div>
+            <input name="navigation" type="text" id="navigationTitle"  />
+            <button class="btn btn-default" type="submit" id="navigationAdd">添加</button>
+        </div>
     </div>
 
 

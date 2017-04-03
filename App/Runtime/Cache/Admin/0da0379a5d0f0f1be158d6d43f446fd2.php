@@ -59,8 +59,16 @@
     
     <div class="bodyRight category">
         <h3>前台导航/列表</h3>
-        <div>
-            <label class="col-sm-2 control-label"><a class="btn btn-primary" href="/Admin/Menu/add">添加</a></label>
+        <div >
+            <div style="overflow: hidden">
+                <label class="col-sm-2 control-label"><a class="btn btn-primary" href="/Admin/Navigation/add">添加导航</a></label>
+            </div>
+            <?php if(is_array($navigation)): $i = 0; $__LIST__ = $navigation;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?><div class="navigation-box">
+                    <h3><?php echo ($nav['title']); ?></h3>
+                    <ol>
+                        <?php if(is_array($nav['children'])): $i = 0; $__LIST__ = $nav['children'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$child): $mod = ($i % 2 );++$i;?><li><?php echo ($child['title']); ?></li><?php endforeach; endif; else: echo "" ;endif; ?>
+                    </ol>
+                </div><?php endforeach; endif; else: echo "" ;endif; ?>
         </div>
     </div>
 

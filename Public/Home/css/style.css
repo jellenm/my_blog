@@ -34,7 +34,9 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
     body {
         background: #f0f0f0;
         color: #636363;
-        font: 11px/1.7 'Open Sans', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+
+        /*font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans","wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;*/
+        font: 11px/1.7 "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans","wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;
         overflow-y: auto;
         overflow-x: hidden;
         -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
@@ -65,7 +67,8 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
     h1, h2, h3, h4, h5, h6 {
         color: #333;
-        font-family: 'Open Sans', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+        font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans","wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;
+        /*font-family: 'Open Sans', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;*/
         line-height: 1.25;
         text-transform: uppercase;
     }
@@ -104,8 +107,9 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
                 border-radius: 2px;
         background-size: 100% 200%;
         color: #fff;
-        cursor: pointer;    
-        font-family: 'Open Sans', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+        cursor: pointer;
+        font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans","wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;
+        /*font-family: 'Open Sans', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;*/
         font-weight: 600;
         padding: 7px 25px 8px;
         -webkit-transition: background .2s ease-out;
@@ -132,6 +136,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
         margin-left: -520px;
         position: relative;
         width: 1040px;
+        overflow-y: hidden;
     }
     .container {
         margin: 0 20px;
@@ -186,7 +191,8 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
     #navigation a {
         color: #333;
         display: block;
-        font-family: 'Open Sans', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+        font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans","wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;
+        /*font-family: 'Open Sans', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;*/
         font-size: 12px;
         font-weight: 700;
         margin: 0 0 0 40px;
@@ -267,7 +273,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 /* ------------------------------------------------------------------------------- */
 
     #content {
-
+        overflow: hidden;
     }
     #main {
         float: left;
@@ -355,12 +361,15 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
     /*  Project & Blog Carousel  --------------------------------*/
 
     #project-wrapper, #blog-wrapper {
-        margin: 90px 0 0;
+        margin: 70px 0 0;
         position: relative;
         width: 100% !important;
     }
     #blog-wrapper {
         margin: 70px 0 0;
+    }
+    #project-wrapper{
+        margin-bottom:70px;
     }
     .section-title  {
         display: block;
@@ -1760,8 +1769,12 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
     #footer {
         background: #333;
-        margin: 100px 0 0;
-        padding: 60px 0 0;
+        /*margin: 100px 0 0;*/
+        /*padding: 60px 0 0;*/
+        height:40px;
+        line-height:40px;
+        text-align: center;
+        overflow: hidden;
     }
     #footer .logo {
         display: block;
@@ -1790,11 +1803,11 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
     /*  Copyright & Social Links  --------------------------------*/
 
     #footer .info {
-        background: url(../images/sep_f.png) repeat-x 0 0;
-        line-height: 21px;
-        margin-top: 34px;
-        padding-bottom: 14px;
-        padding-top: 17px;
+        /*background: url(../images/sep_f.png) repeat-x 0 0;*/
+        /*line-height: 21px;*/
+        /*margin-top: 34px;*/
+        /*padding-bottom: 14px;*/
+        /*padding-top: 17px;*/
     }
     .copyright li {
         display: block;
@@ -2416,7 +2429,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
         /*  Navigation  ------------*/
 
-        #navigation { display: none; }
+        /*#navigation { display: none; }*/
 
         .selectnav {
             background: url(../images/nav_arrow.png) no-repeat, url(../images/bg_dots_grey.png);

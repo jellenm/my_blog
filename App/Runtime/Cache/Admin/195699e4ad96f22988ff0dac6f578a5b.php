@@ -67,6 +67,17 @@
                 </div>
                 <br>
                 <br>
+                <div>
+                    <label for="typeName" class="col-sm-2 control-label">主导航</label>
+                    <div class=" col-sm-10">
+                        <select class="form-control" id="typepid">
+                            <?php if(is_array($navigation)): $i = 0; $__LIST__ = $navigation;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$nav): $mod = ($i % 2 );++$i;?><option value="<?php echo ($nav['id']); ?>"><?php echo ($nav['title']); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+                        </select>
+                    </div>
+
+                </div>
+                <br>
+                <br>
                 <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" class="btn btn-default" id="addType" >添加</button>
                 </div>
