@@ -15,7 +15,8 @@ return array(
     'URL_ROUTER_ON'   => true,
     'URL_ROUTE_RULES' =>array(
         'blog$'=>array('Blog/index','type=0'),
-        'blog/:type'=> array('Blog/blogList'),
+        'blog/:id\d'=> array('Blog/article'),
+        'blog/:type'=> array('Blog/index'),
         'share$'=>array('Share/index','type=0'),
     )
 );

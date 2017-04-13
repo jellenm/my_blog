@@ -11,11 +11,19 @@ class BlogController extends Controller{
             $navigation[$key]['children'] = $res;
         }
         $this->assign('navigation',$navigation);
-        dump($navigation);
+
+        if($type == '0'){
+            $lists = D('Article')->where('gid=1')->select();
+        }else{
+            $data['title'] = $type;
+            $id = D('Type')->where($data)->select();
+            $lists = D('article')->where('pid='.$id[0]['id'])->select();
+        }
+        $this->assign('lists',$lists);
         $this->display();
     }
-    public function blogList($type){
-        dump($type);exit;
+    public function article($id){
+        dump($id);exit;
     }
 
     public function read($id){
