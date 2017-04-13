@@ -12,6 +12,9 @@ class ArticleModel extends Model{
         return $res;
     }
     public function addArticle($data){
+        $type = $data['pid'];
+        $typeres = D('Type')->where('id = '.$type)->select();
+        $data['gid'] = $typeres[0]['pid'];
         $res = $this->_db->add($data);
         if($res){
             $where['content'] = $data['content'];

@@ -36,24 +36,24 @@ class LoginController extends Controller{
         returnJson(1,'退出成功');
     }
 
-//    public function register(){
-//        if(I('post.username') && I('post.password')){
-//            $username = I('post.username');
-//            $password = I('post.password');
-//            $password = passwordToMd5($password);
-//            $data['username'] = $username;
-//            $data['password'] = $password;
-//            $res = D('Admin')->register($data);
-//
-//            if($res){
-//                returnJson(1,'注册成功');
-//            }else{
-//                returnJson(0,'注册失败');
-//            }
-//
-//
-//        }
-//        $this->display();
-//    }
+    public function register(){
+        if(I('post.username') && I('post.password')){
+            $username = I('post.username');
+            $password = I('post.password');
+            $password = passwordToMd5($password);
+            $data['username'] = $username;
+            $data['password'] = $password;
+            $res = D('Admin')->register($data);
+
+            if($res){
+                returnJson(1,'注册成功');
+            }else{
+                returnJson(0,'注册失败');
+            }
+
+
+        }
+        $this->display();
+    }
     
 }

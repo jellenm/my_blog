@@ -3,8 +3,7 @@ namespace Home\Controller;
 use Think\Controller;
 
 class BlogController extends Controller{
-    public function index($name){
-        dump($name);
+    public function index($type){
         $navigation = M('Navigation')->select();
         foreach($navigation as $key => $value){
             $where['pid'] = $value['id'];
@@ -12,10 +11,11 @@ class BlogController extends Controller{
             $navigation[$key]['children'] = $res;
         }
         $this->assign('navigation',$navigation);
+        dump($navigation);
         $this->display();
     }
-    public function list($name){
-        dump($name);exit;
+    public function blogList($type){
+        dump($type);exit;
     }
 
     public function read($id){

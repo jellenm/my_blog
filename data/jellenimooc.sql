@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost_3306
+Source Server         : local
 Source Server Version : 50505
 Source Host           : localhost:3306
 Source Database       : jellenimooc
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-04-11 22:13:31
+Date: 2017-04-13 08:11:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -33,7 +33,7 @@ CREATE TABLE `think_admin` (
 -- ----------------------------
 -- Records of think_admin
 -- ----------------------------
-INSERT INTO `think_admin` VALUES ('2', 'jellen', 'd2cda6a7ff06e1eba9d7f447cf498dc4', '127.0.0.1', '1491229801', '', '1');
+INSERT INTO `think_admin` VALUES ('2', 'jellen', 'd2cda6a7ff06e1eba9d7f447cf498dc4', '127.0.0.1', '1491978646', '', '1');
 
 -- ----------------------------
 -- Table structure for think_article
@@ -50,13 +50,14 @@ CREATE TABLE `think_article` (
   `status` int(1) NOT NULL DEFAULT '1',
   `thumb` varchar(50) NOT NULL,
   `keywords` varchar(20) NOT NULL,
+  `gid` tinyint(3) unsigned NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of think_article
 -- ----------------------------
-INSERT INTO `think_article` VALUES ('1', '4', '123', '123', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'jellen', '1', '/Uploads/2017-04-03/149120338720.png', '123');
+INSERT INTO `think_article` VALUES ('1', '4', '123', '123', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'jellen', '1', '/Uploads/2017-04-03/149120338720.png', '123', '1');
 
 -- ----------------------------
 -- Table structure for think_content

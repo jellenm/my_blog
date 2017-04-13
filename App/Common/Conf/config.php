@@ -11,6 +11,8 @@ return array(
     'DB_PORT'=>3306,
     'DB_PREFIX'=>'think_',
     'DB_CHARSET'=>'utf8',
-     //数据库配置
+
+    'MODULE_ALLOW_LIST'    =>    array('Home','Admin'),
+    'DEFAULT_MODULE'       =>    'Home',  // 默认模块
 
 );

@@ -73,7 +73,7 @@
                 <label for="articleTitle" class="col-sm-2 control-label">类型</label>
                 <div class="col-sm-10">
                     <select class="form-control" id="articleType" >
-                        <?php if(is_array($type)): $i = 0; $__LIST__ = $type;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$types): $mod = ($i % 2 );++$i;?><option value="<?php echo ($types["id"]); ?>"><?php echo ($types["title"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+                        <?php if(is_array($type)): $i = 0; $__LIST__ = $type;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$types): $mod = ($i % 2 );++$i;?><option value="<?php echo ($types["id"]); ?>" data-pid = <?php echo ($types["pid"]); ?>><?php echo ($types["title"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
                     </select>
                 </div>
             </div>
