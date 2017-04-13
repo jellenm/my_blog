@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : local
+Source Server         : localhost_3306
 Source Server Version : 50505
 Source Host           : localhost:3306
 Source Database       : jellenimooc
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-04-13 08:11:28
+Date: 2017-04-13 23:25:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -33,7 +33,7 @@ CREATE TABLE `think_admin` (
 -- ----------------------------
 -- Records of think_admin
 -- ----------------------------
-INSERT INTO `think_admin` VALUES ('2', 'jellen', 'd2cda6a7ff06e1eba9d7f447cf498dc4', '127.0.0.1', '1491978646', '', '1');
+INSERT INTO `think_admin` VALUES ('2', 'jellen', 'd2cda6a7ff06e1eba9d7f447cf498dc4', '127.0.0.1', '1492090228', '', '1');
 
 -- ----------------------------
 -- Table structure for think_article
@@ -44,20 +44,21 @@ CREATE TABLE `think_article` (
   `pid` tinyint(3) unsigned NOT NULL,
   `title` varchar(30) NOT NULL,
   `description` varchar(60) NOT NULL,
-  `creattime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `modifytime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `creattime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `modifytime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `author` varchar(20) NOT NULL,
   `status` int(1) NOT NULL DEFAULT '1',
   `thumb` varchar(50) NOT NULL,
   `keywords` varchar(20) NOT NULL,
   `gid` tinyint(3) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of think_article
 -- ----------------------------
-INSERT INTO `think_article` VALUES ('1', '4', '123', '123', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'jellen', '1', '/Uploads/2017-04-03/149120338720.png', '123', '1');
+INSERT INTO `think_article` VALUES ('1', '4', '123', '123', '2017-04-13 23:23:40', '2017-04-13 23:23:46', 'jellen', '1', '/Uploads/2017-04-03/149120338720.png', '123', '1');
+INSERT INTO `think_article` VALUES ('2', '4', '123', '123', '2017-04-13 23:23:49', '2017-04-13 23:23:55', 'jellen', '1', '/Uploads/2017-04-13/149209038820.jpg', '213', '1');
 
 -- ----------------------------
 -- Table structure for think_content
@@ -68,12 +69,13 @@ CREATE TABLE `think_content` (
   `content` text NOT NULL,
   `pid` mediumint(8) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of think_content
 -- ----------------------------
 INSERT INTO `think_content` VALUES ('1', '&lt;p&gt;123&lt;/p&gt;', '1');
+INSERT INTO `think_content` VALUES ('2', '&lt;p&gt;123&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '2');
 
 -- ----------------------------
 -- Table structure for think_menu
