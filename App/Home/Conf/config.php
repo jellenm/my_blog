@@ -18,5 +18,7 @@ return array(
         'blog/:id\d'=> array('Blog/article'),
         'blog/:type'=> array('Blog/index'),
         'share$'=>array('Share/index','type=0'),
+        'share/:id\d'=> array('Share/article'),
+        'share/:type'=> array('Share/index'),
     )
 );

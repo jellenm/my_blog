@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost_3306
+Source Server         : local
 Source Server Version : 50505
 Source Host           : localhost:3306
 Source Database       : jellenimooc
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-04-13 23:25:41
+Date: 2017-04-14 17:53:40
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -33,7 +33,7 @@ CREATE TABLE `think_admin` (
 -- ----------------------------
 -- Records of think_admin
 -- ----------------------------
-INSERT INTO `think_admin` VALUES ('2', 'jellen', 'd2cda6a7ff06e1eba9d7f447cf498dc4', '127.0.0.1', '1492090228', '', '1');
+INSERT INTO `think_admin` VALUES ('2', 'jellen', 'd2cda6a7ff06e1eba9d7f447cf498dc4', '127.0.0.1', '1492162846', '', '1');
 
 -- ----------------------------
 -- Table structure for think_article
@@ -52,13 +52,14 @@ CREATE TABLE `think_article` (
   `keywords` varchar(20) NOT NULL,
   `gid` tinyint(3) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of think_article
 -- ----------------------------
 INSERT INTO `think_article` VALUES ('1', '4', '123', '123', '2017-04-13 23:23:40', '2017-04-13 23:23:46', 'jellen', '1', '/Uploads/2017-04-03/149120338720.png', '123', '1');
 INSERT INTO `think_article` VALUES ('2', '4', '123', '123', '2017-04-13 23:23:49', '2017-04-13 23:23:55', 'jellen', '1', '/Uploads/2017-04-13/149209038820.jpg', '213', '1');
+INSERT INTO `think_article` VALUES ('3', '11', '好好的', '好好的', '0000-00-00 00:00:00', '2017-04-14 17:42:24', 'jellen', '1', '/Uploads/2017-04-14/149216293320.png', '好好的', '2');
 
 -- ----------------------------
 -- Table structure for think_content
@@ -69,13 +70,14 @@ CREATE TABLE `think_content` (
   `content` text NOT NULL,
   `pid` mediumint(8) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of think_content
 -- ----------------------------
 INSERT INTO `think_content` VALUES ('1', '&lt;p&gt;123&lt;/p&gt;', '1');
 INSERT INTO `think_content` VALUES ('2', '&lt;p&gt;123&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '2');
+INSERT INTO `think_content` VALUES ('3', '&lt;p&gt;好好的&lt;/p&gt;&lt;p&gt;好好的好好的好好的好好的好好的好好的&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '3');
 
 -- ----------------------------
 -- Table structure for think_menu
@@ -145,7 +147,7 @@ CREATE TABLE `think_type` (
   `id` mediumint(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of think_type
@@ -156,3 +158,4 @@ INSERT INTO `think_type` VALUES ('1', '6', 'css');
 INSERT INTO `think_type` VALUES ('1', '7', 'nodejs');
 INSERT INTO `think_type` VALUES ('1', '8', 'php');
 INSERT INTO `think_type` VALUES ('1', '10', 'thinkphp');
+INSERT INTO `think_type` VALUES ('2', '11', 'mood');

@@ -10,25 +10,16 @@
 <!-- Main Content -->
 <block name="bodyLeft">
     <div id="main">
-        <!-- Normal Post -->
-        <volist name="lists" id="vo">
-            <div class="post clearfix">
-                <a href="/share/{$vo['id']}"><h2>{$vo['title']}</h2></a>
-                <ul class="post-meta">
-                    <li class="author">By <a href="./share.html">{$vo['author']}</a></li>
-                    <li class="date">{$vo['creattime']}</li>
-                    <li class="tags">{$vo['keywords']}</li>
-                </ul>
-                <div class="post-entry">
-                    <a href="/blog/{$vo['id']}" title=""><img src="{$vo['thumb']}" alt="" class="image" /></a>
-                    <p>
-                        {$vo['description']}
-                    </p>
-                </div>
+        <div class="post single clearfix">
+            <ul class="post-meta">
+                <li class="author">By <a href="./blog_post.html">{$info['author']}</a></li>
+                <li class="date">{$info['creattime']}</li>
+                <li class="tags">{$info['keywords']}</li>
+            </ul>
+            <div class="post-entry">
+                {$content}
             </div>
-        </volist>
-        <!-- /Normal Post -->
-
+        </div>
     </div>
 </block>
 <block name="bodyRight">

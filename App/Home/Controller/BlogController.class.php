@@ -23,7 +23,20 @@ class BlogController extends Controller{
         $this->display();
     }
     public function article($id){
-        dump($id);exit;
+        $navigation = M('Navigation')->select();
+        foreach($navigation as $key => $value){
+            $where['pid'] = $value['id'];
+            $res = M('Type')->where($where)->select();
+            $navigation[$key]['children'] = $res;
+        }
+        $this->assign('navigation',$navigation);
+
+        $articleInfo = D('Article')->where('id='.$id)->select();
+        $articleCon = D('Content')->where('pid='.$id)->field('content')->select();
+
+        $this->assign('info',$articleInfo[0]);
+        $this->assign('content',htmlspecialchars_decode($articleCon[0]['content']));
+        $this->display();
     }
 
     public function read($id){

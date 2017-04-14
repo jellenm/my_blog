@@ -1,6 +1,8 @@
 <?php
-
-function get_header_blog(){
-    $lists = D('Type')->where('pid=1')->select();
+/*  获取
+ *
+ */
+function get_header_blog($type){
+    $lists = D('Type')->where('pid='.$type)->select();
     return $lists;
 }
