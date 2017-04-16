@@ -38,30 +38,23 @@
     <div id="content" class="container clearfix">
     
     <h1 class="page-title-inner">
-        <span class="section-title">分享</span>
+        <span class="section-title">博客</span>
         Amazing things that<br /> bring
         <span class="accent">positive results</span>
     </h1>
 
     
     <div id="main">
-        <!-- Normal Post -->
-        <?php if(is_array($lists)): $i = 0; $__LIST__ = $lists;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="post clearfix">
-                <a href="/share/<?php echo ($vo['id']); ?>"><h2><?php echo ($vo['title']); ?></h2></a>
-                <ul class="post-meta">
-                    <li class="author">By <a href="./share.html"><?php echo ($vo['author']); ?></a></li>
-                    <li class="date"><?php echo ($vo['creattime']); ?></li>
-                    <li class="tags"><?php echo ($vo['keywords']); ?></li>
-                </ul>
-                <div class="post-entry">
-                    <a href="/blog/<?php echo ($vo['id']); ?>" title=""><img src="<?php echo ($vo['thumb']); ?>" alt="" class="image" /></a>
-                    <p>
-                        <?php echo ($vo['description']); ?>
-                    </p>
-                </div>
-            </div><?php endforeach; endif; else: echo "" ;endif; ?>
-        <!-- /Normal Post -->
-
+        <div class="post single clearfix">
+            <ul class="post-meta">
+                <li class="author">By <a href="./blog_post.html"><?php echo ($info['author']); ?></a></li>
+                <li class="date"><?php echo ($info['creattime']); ?></li>
+                <li class="tags"><?php echo ($info['keywords']); ?></li>
+            </ul>
+            <div class="post-entry">
+                <?php echo ($content); ?>
+            </div>
+        </div>
     </div>
 
     
@@ -72,20 +65,23 @@
 
         <!-- Blog Categories -->
         <div class="widget">
-            <h5>分享分类 </h5>
+            <h5>博客分类 </h5>
             <ul class="categories">
-                <?php $_result=get_header_blog(2);if(is_array($_result)): $i = 0; $__LIST__ = $_result;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li><a href="/blog/<?php echo ($vo['title']); ?>"><?php echo ($vo['title']); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
+                <?php $_result=get_header_blog(1);if(is_array($_result)): $i = 0; $__LIST__ = $_result;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li><a href="/blog/<?php echo ($vo['title']); ?>"><?php echo ($vo['title']); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
             </ul>
         </div>
-        <!-- /Blog Categories -->
-
         <!-- Accordion -->
         <div class="widget">
             <h5>最新文章</h5>
-            <?php if(is_array($latelyLists)): $i = 0; $__LIST__ = $latelyLists;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?><div class="accordion-button"><a href="/blog/<?php echo ($list['id']); ?>"><?php echo ($list['title']); ?></a></div>
-                <div class="accordion-content">
-                    <?php echo ($list['description']); ?>
-                </div><?php endforeach; endif; else: echo "" ;endif; ?>
+            <!-- Accordion -->
+            <div class="widget">
+                <h5>Accordion Widget</h5>
+                <?php if(is_array($latelyLists)): $i = 0; $__LIST__ = $latelyLists;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?><div class="accordion-button"><a href="/blog/<?php echo ($list['id']); ?>"><?php echo ($list['title']); ?></a></div>
+                    <div class="accordion-content">
+                        <?php echo ($list['description']); ?>
+                    </div><?php endforeach; endif; else: echo "" ;endif; ?>
+            </div>
+            <!-- Accordion -->
         </div>
         <!-- Accordion -->
 

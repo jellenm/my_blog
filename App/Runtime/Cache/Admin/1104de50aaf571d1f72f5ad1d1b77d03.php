@@ -60,27 +60,27 @@
         </div>
     
     
-    <div class="bodyRight category ">
-        <h3>文章管理/添加</h3>
+    <div class="bodyRight category">
+        <h3>文章管理/编辑</h3>
         <div class="article-add-form">
             <div class="form-group">
-                <label for="articleTitle" class="col-sm-2 control-label">文章名</label>
+                <label for="articleTitle" class="col-sm-2 control-label">标题</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="articleTitle" placeholder="请输入文章标题">
+                    <input type="text" class="form-control" id="articleTitle" placeholder="请输入文章标题" value="<?php echo ($article["title"]); ?>">
                 </div>
             </div>
             <div class="article-parent form-group">
                 <label for="articleTitle" class="col-sm-2 control-label">类型</label>
                 <div class="col-sm-10">
                     <select class="form-control" id="articleType" >
-                        <?php if(is_array($type)): $i = 0; $__LIST__ = $type;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$types): $mod = ($i % 2 );++$i;?><option value="<?php echo ($types["id"]); ?>"><?php echo ($types["title"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+                        <?php if(is_array($type)): $i = 0; $__LIST__ = $type;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$types): $mod = ($i % 2 );++$i;?><option value="<?php echo ($types["id"]); ?>"   <?php if($type["id"] == $article.pid): ?>selected<?php endif; ?> ><?php echo ($types["title"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
                     </select>
                 </div>
             </div>
             <div class="form-group">
                 <label for="articleDescription" class="col-sm-2 control-label">文章描述</label>
                 <div class="col-sm-10">
-                    <textarea class="form-control" rows="3" placeholder="请输入文章描述,最多三十二个字" id="articleDescription"></textarea>
+                    <textarea class="form-control" rows="3" placeholder="请输入文章描述,最多三十二个字" id="articleDescription"><?php echo ($article["description"]); ?></textarea>
                 </div>
             </div>
             <div class="form-group">
@@ -90,19 +90,20 @@
                         +
                         <input type="file"  id="articleUpImg"  />
                     </div>
-                    <img src="" alt="已上传图片" class="img-rounded hide" id="articleImgShow" >
+                    <img src="<?php echo ($article["thumb"]); ?>" alt="已上传图片" class="img-rounded" id="articleImgShow" >
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">作者</label>
                 <div class="col-sm-10">
-                    <span id="articleAuthor"><?php echo ($username); ?></span>
+                    <span id="articleAuthor"><?php echo ($article["author"]); ?></span>
                 </div>
             </div>
+            <input type="hidden" name="cid" value="<?php echo ($article["id"]); ?>" id="cid" />
             <div class="form-group">
                 <label class="col-sm-2 control-label">关键词</label>
                 <div class="col-sm-10">
-                    <textarea class="form-control" rows="3" id="articleKeywords" placeholder="输入文章关键词，以逗号分隔" ></textarea>
+                    <textarea class="form-control" rows="3" id="articleKeywords" placeholder="输入文章关键词，以逗号分隔"  ><?php echo ($article["keywords"]); ?></textarea>
                 </div>
             </div>
             <div class="form-group">
@@ -116,7 +117,7 @@
                 </div>
             </div>
             <div style="text-align: right">
-                <button type="button" class="btn btn-primary" id="articleAdd">添加文章</button>
+                <button type="button" class="btn btn-primary" id="articleEdit">确定</button>
             </div>
         </div>
     </div>
@@ -206,9 +207,9 @@
         // });
 
         // onchange 事件
-//        editor.onchange = function () {
-//            console.log(this.$txt.html());
-//        };
+        //        editor.onchange = function () {
+        //            console.log(this.$txt.html());
+        //        };
 
         // 取消过滤js
         // editor.config.jsFilter = false;
@@ -232,6 +233,8 @@
         //     selected: '<button style="font-size:20px; margin-top:5px;"><i>I</i></button>'
         // };
         editor.create();
+        var h = <?php echo ($article['content']); ?>;
+        editor.$txt.html(h);
     </script>
 
 

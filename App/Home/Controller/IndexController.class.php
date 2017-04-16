@@ -10,6 +10,13 @@ class IndexController extends Controller {
             $navigation[$key]['children'] = $res;
         }
         $this->assign('navigation',$navigation);
+
+        $latelyLists = D('article')->where('gid=1')->order('creattime')->limit(6)->select();
+        $this->assign('blatelyLists',$latelyLists);
+
+        $latelyLists = D('article')->where('gid=2')->order('creattime')->limit(4)->select();
+        $this->assign('slatelyLists',$latelyLists);
+
         $this->display();
     }
     public function add(){

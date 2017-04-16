@@ -20,6 +20,10 @@ class ShareController extends Controller{
             $lists = D('article')->where('pid='.$id[0]['id'])->select();
         }
         $this->assign('lists',$lists);
+
+        $latelyLists = D('article')->where('gid=2')->order('creattime')->limit(4)->select();
+        $this->assign('latelyLists',$latelyLists);
+
         $this->display();
     }
     public function article($id){
@@ -36,6 +40,10 @@ class ShareController extends Controller{
 
         $this->assign('info',$articleInfo[0]);
         $this->assign('content',htmlspecialchars_decode($articleCon[0]['content']));
+
+        $latelyLists = D('article')->where('gid=2')->order('creattime')->limit(4)->select();
+        $this->assign('latelyLists',$latelyLists);
+
         $this->display();
     }
 }

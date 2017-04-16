@@ -15,6 +15,7 @@ class ArticleModel extends Model{
         $type = $data['pid'];
         $typeres = D('Type')->where('id = '.$type)->select();
         $data['gid'] = $typeres[0]['pid'];
+        $data['creattime'] = date();
         $res = $this->_db->add($data);
         if($res){
             $where['content'] = $data['content'];

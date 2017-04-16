@@ -35,191 +35,63 @@
     <!-- /Header -->
 
         
-    <!-- Content -->
-    <div id="content" class="container">
+    <div id="content" class="container clearfix">
+    
+        <h1 class="page-title-inner">
+            <span class="section-title">博客</span>
+            Amazing things that<br /> bring
+            <span class="accent">positive results</span>
+        </h1>
+    
+    
+        <div id="main">
+            <!-- Normal Post -->
+            <?php if(is_array($lists)): $i = 0; $__LIST__ = $lists;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="post clearfix">
+                    <a href="/blog/<?php echo ($vo['id']); ?>"><h2><?php echo ($vo['title']); ?></h2></a>
+                    <ul class="post-meta">
+                        <li class="author">By <a href="./blog.html"><?php echo ($vo['author']); ?></a></li>
+                        <li class="date"><?php echo ($vo['creattime']); ?></li>
+                        <li class="tags"><?php echo ($vo['keywords']); ?></li>
+                    </ul>
+                    <div class="post-entry">
+                        <a href="/blog/<?php echo ($vo['id']); ?>" title=""><img src="<?php echo ($vo['thumb']); ?>" alt="" class="image" /></a>
+                        <p>
+                            <?php echo ($vo['description']); ?>
+                        </p>
+                    </div>
+                </div><?php endforeach; endif; else: echo "" ;endif; ?>
+            <!-- /Normal Post -->
 
-        <h1 class="page-title">如果 , <span class="accent">梦想 , </span>有颜色</h1>
-
-        <!-- Slider -->
-        <div id="main-slider" class="flexslider">
-            <ul class="slides">
-                <li>
-                    <img src="/Public/Home/images/slider/slider3.jpg" alt="" />
-                    <div class="flex-caption">
-                        <h3>日出</h3>
-                        <p class="ps">-------2015.10 黄山</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="/Public/Home/images/slider/slider1.jpg" alt="" />
-                    <div class="flex-caption">
-                        <h3>黄山</h3>
-                        <p class="ps">-------2015.10 黄山</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="/Public/Home/images/slider/slider4.jpg" alt="" />
-                    <div class="flex-caption">
-                        <h3>日落</h3>
-                        <p class="ps">-------2015.10 黄山</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="/Public/Home/images/slider/slider6.jpg" alt="" />
-                    <div class="flex-caption">
-                        <h3>溪水</h3>
-                        <p class="ps">-------2015.10 黄山</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="/Public/Home/images/slider/slider2.jpg" alt="" />
-                    <div class="flex-caption">
-                        <h3>朝霞</h3>
-                        <p class="ps">-------2015.10 黄山</p>
-                    </div>
-                </li>
-            </ul>
         </div>
-        <!-- /Slider -->
+    
+    
+        <!-- Sidebar -->
+        <div id="sidebar">
 
+            <input type="text" value="搜索" default-value="搜索" class="search" />
 
-        <!-- Blog Carousel -->
-        <div id="blog-wrapper" class="clearfix">
-
-            <div class="section-title one-fourth">
-                <h4>From 博客</h4>
-                <p> day day up </p>
-                <p><a href="./blog.html">Read the blog</a></p>
-                <div class="carousel-nav">
-                    <a id="blog-prev" class="jcarousel-prev" href="./index.html"></a>
-                    <a id="blog-next" class="jcarousel-next" href="./index.html"></a>
-                </div>
+            <!-- Blog Categories -->
+            <div class="widget">
+                <h5>博客分类 </h5>
+                <ul class="categories">
+                    <?php $_result=get_header_blog(1);if(is_array($_result)): $i = 0; $__LIST__ = $_result;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li><a href="/blog/<?php echo ($vo['title']); ?>"><?php echo ($vo['title']); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
+                </ul>
             </div>
 
-            <ul class="blog-carousel">
-                <li>
-                    <a href="./blog_post.html">
-                        <h4>Feeling the Wrath</h4>
-                    </a>
-                    <span class="date">05 Jul 2012 · 22 Comments</span>
-                    <p>Nam ultricies dolor eu velit varius scelerisque. Vestibulum in lacus in felis pretium feugiat non sed elit. Duis pretium, urna sed pellentesque tincidunt, neque massa imperdiet nisi, sed cursus leo magna...</p>
-                </li>
-                <li>
-                    <a href="./blog_post.html">
-                        <h4>Craig's List</h4>
-                    </a>
-                    <span class="date">04 Jul 2012 · 22 Comments</span>
-                    <p>Sed nunc tortor, sagittis quis viverra id, molestie vitae nibh. Donec vitae lacus sed risus accumsan consectetur ut a ligula. Etiam vitae nisi diam, in rutrum dui. In facilisis, erat sed laoreet aliquet, mauris urna placerat enim...</p>
-                </li>
-                <li>
-                    <a href="./blog_post.html">
-                        <h4>Summer Sounds</h4>
-                    </a>
-                    <span class="date">02 Jul 2012 · 22 Comments</span>
-                    <p>Pellentesque ornare, risus et vulputate mollis, massa nulla aliquam neque, sed hendrerit orci quam eget ante. Morbi pulvinar ligula at sapien ultricies hendrerit. Morbi mollis dictum libero at ultrices...</p>
-                </li>
-                <li>
-                    <a href="./blog_post.html">
-                        <h4>Following Our Dreams</h4>
-                    </a>
-                    <span class="date">05 Jul 2012 · 22 Comments</span>
-                    <p>Nam ultricies dolor eu velit varius scelerisque. Vestibulum in lacus in felis pretium feugiat non sed elit. Duis pretium, urna sed pellentesque tincidunt, neque massa imperdiet nisi, sed cursus leo magna...</p>
-                </li>
-                <li>
-                    <a href="./blog_post.html">
-                        <h4>Sleeping Easy</h4>
-                    </a>
-                    <span class="date">04 Jul 2012 · 22 Comments</span>
-                    <p>Sed nunc tortor, sagittis quis viverra id, molestie vitae nibh. Donec vitae lacus sed risus accumsan consectetur ut a ligula. Etiam vitae nisi diam, in rutrum dui. In facilisis, erat sed laoreet aliquet, mauris urna placerat enim...</p>
-                </li>
-                <li>
-                    <a href="./blog_post.html">
-                        <h4>Discovery Channel</h4>
-                    </a>
-                    <span class="date">02 Jul 2012 · 22 Comments</span>
-                    <p>Pellentesque ornare, risus et vulputate mollis, massa nulla aliquam neque, sed hendrerit orci quam eget ante. Morbi pulvinar ligula at sapien ultricies hendrerit. Morbi mollis dictum libero at ultrices...</p>
-                </li>
-            </ul>
-        </div>
-        <!-- /Blog Carousel -->
-
-        <!-- Project Carousel -->
-        <div id="project-wrapper" class="clearfix">
-
-            <div class="section-title one-fourth">
-                <h4>From 分享</h4>
-                <p>enjoy every day</p>
-                <p><a href="./portfolio_4_col.html">View more share</a></p>
-                <div class="carousel-nav">
-                    <a id="project-prev" class="jcarousel-prev" href="./index.html"></a>
-                    <a id="project-next" class="jcarousel-next" href="./index.html"></a>
-                </div>
+            <!-- Accordion -->
+            <div class="widget">
+                <h5>最新文章</h5>
+                <?php if(is_array($latelyLists)): $i = 0; $__LIST__ = $latelyLists;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?><div class="accordion-button"><a href="/blog/<?php echo ($list['id']); ?>"><?php echo ($list['title']); ?></a></div>
+                    <div class="accordion-content">
+                        <?php echo ($list['description']); ?>
+                    </div><?php endforeach; endif; else: echo "" ;endif; ?>
             </div>
+            <!-- Accordion -->
 
-            <ul class="project-carousel">
-                <li>
-                    <a href="./portfolio_details.html" class="project-item">
-                        <img src="/Public/Home/images/content/project_4_05.jpg" alt="" />
-                        <div class="overlay">
-                            <h5>Enhancing the moment</h5>
-                            <p>Web Design</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="./portfolio_details.html" class="project-item">
-                        <img src="/Public/Home/images/content/project_4_06.jpg" alt="" />
-                        <div class="overlay">
-                            <h5>Connecting pictures</h5>
-                            <p>Motion Graphics</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="./portfolio_details.html" class="project-item">
-                        <img src="/Public/Home/images/content/project_4_07.jpg" alt="" />
-                        <div class="overlay">
-                            <h5>Real-world workflow</h5>
-                            <p>Artwork</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="./portfolio_details.html" class="project-item">
-                        <img src="/Public/Home/images/content/project_4_08.jpg" alt="" />
-                        <div class="overlay">
-                            <h5>Completing the story</h5>
-                            <p>Web Design</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="./portfolio_details.html" class="project-item">
-                        <img src="/Public/Home/images/content/project_4_09.jpg" alt="" />
-                        <div class="overlay">
-                            <h5>Through the roads</h5>
-                            <p>Animation</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="./portfolio_details.html" class="project-item">
-                        <img src="/Public/Home/images/content/project_4_10.jpg" alt="" />
-                        <div class="overlay">
-                            <h5>The past</h5>
-                            <p>Print Design</p>
-                        </div>
-                    </a>
-                </li>
-            </ul>
         </div>
-        <!-- /Project Carousel -->
-
-
-
-
+        <!-- /Sidebar -->
+    
     </div>
-    <!-- /Content -->
 
         
     <!-- Footer -->

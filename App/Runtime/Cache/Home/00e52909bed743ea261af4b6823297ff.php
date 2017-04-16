@@ -97,48 +97,13 @@
             </div>
 
             <ul class="blog-carousel">
-                <li>
-                    <a href="./blog_post.html">
-                        <h4>Feeling the Wrath</h4>
-                    </a>
-                    <span class="date">05 Jul 2012 · 22 Comments</span>
-                    <p>Nam ultricies dolor eu velit varius scelerisque. Vestibulum in lacus in felis pretium feugiat non sed elit. Duis pretium, urna sed pellentesque tincidunt, neque massa imperdiet nisi, sed cursus leo magna...</p>
-                </li>
-                <li>
-                    <a href="./blog_post.html">
-                        <h4>Craig's List</h4>
-                    </a>
-                    <span class="date">04 Jul 2012 · 22 Comments</span>
-                    <p>Sed nunc tortor, sagittis quis viverra id, molestie vitae nibh. Donec vitae lacus sed risus accumsan consectetur ut a ligula. Etiam vitae nisi diam, in rutrum dui. In facilisis, erat sed laoreet aliquet, mauris urna placerat enim...</p>
-                </li>
-                <li>
-                    <a href="./blog_post.html">
-                        <h4>Summer Sounds</h4>
-                    </a>
-                    <span class="date">02 Jul 2012 · 22 Comments</span>
-                    <p>Pellentesque ornare, risus et vulputate mollis, massa nulla aliquam neque, sed hendrerit orci quam eget ante. Morbi pulvinar ligula at sapien ultricies hendrerit. Morbi mollis dictum libero at ultrices...</p>
-                </li>
-                <li>
-                    <a href="./blog_post.html">
-                        <h4>Following Our Dreams</h4>
-                    </a>
-                    <span class="date">05 Jul 2012 · 22 Comments</span>
-                    <p>Nam ultricies dolor eu velit varius scelerisque. Vestibulum in lacus in felis pretium feugiat non sed elit. Duis pretium, urna sed pellentesque tincidunt, neque massa imperdiet nisi, sed cursus leo magna...</p>
-                </li>
-                <li>
-                    <a href="./blog_post.html">
-                        <h4>Sleeping Easy</h4>
-                    </a>
-                    <span class="date">04 Jul 2012 · 22 Comments</span>
-                    <p>Sed nunc tortor, sagittis quis viverra id, molestie vitae nibh. Donec vitae lacus sed risus accumsan consectetur ut a ligula. Etiam vitae nisi diam, in rutrum dui. In facilisis, erat sed laoreet aliquet, mauris urna placerat enim...</p>
-                </li>
-                <li>
-                    <a href="./blog_post.html">
-                        <h4>Discovery Channel</h4>
-                    </a>
-                    <span class="date">02 Jul 2012 · 22 Comments</span>
-                    <p>Pellentesque ornare, risus et vulputate mollis, massa nulla aliquam neque, sed hendrerit orci quam eget ante. Morbi pulvinar ligula at sapien ultricies hendrerit. Morbi mollis dictum libero at ultrices...</p>
-                </li>
+                <?php if(is_array($blatelyLists)): $i = 0; $__LIST__ = $blatelyLists;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li>
+                        <a href="/blog/<?php echo ($vo['id']); ?>">
+                            <h4><?php echo ($vo['title']); ?></h4>
+                        </a>
+                        <span class="date"><?php echo ($vo['creattime']); ?></span>
+                        <p><?php echo ($vo['description']); ?></p>
+                    </li><?php endforeach; endif; else: echo "" ;endif; ?>
             </ul>
         </div>
         <!-- /Blog Carousel -->
@@ -157,60 +122,15 @@
             </div>
 
             <ul class="project-carousel">
-                <li>
-                    <a href="./portfolio_details.html" class="project-item">
-                        <img src="/Public/Home/images/content/project_4_05.jpg" alt="" />
-                        <div class="overlay">
-                            <h5>Enhancing the moment</h5>
-                            <p>Web Design</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="./portfolio_details.html" class="project-item">
-                        <img src="/Public/Home/images/content/project_4_06.jpg" alt="" />
-                        <div class="overlay">
-                            <h5>Connecting pictures</h5>
-                            <p>Motion Graphics</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="./portfolio_details.html" class="project-item">
-                        <img src="/Public/Home/images/content/project_4_07.jpg" alt="" />
-                        <div class="overlay">
-                            <h5>Real-world workflow</h5>
-                            <p>Artwork</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="./portfolio_details.html" class="project-item">
-                        <img src="/Public/Home/images/content/project_4_08.jpg" alt="" />
-                        <div class="overlay">
-                            <h5>Completing the story</h5>
-                            <p>Web Design</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="./portfolio_details.html" class="project-item">
-                        <img src="/Public/Home/images/content/project_4_09.jpg" alt="" />
-                        <div class="overlay">
-                            <h5>Through the roads</h5>
-                            <p>Animation</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="./portfolio_details.html" class="project-item">
-                        <img src="/Public/Home/images/content/project_4_10.jpg" alt="" />
-                        <div class="overlay">
-                            <h5>The past</h5>
-                            <p>Print Design</p>
-                        </div>
-                    </a>
-                </li>
+                <?php if(is_array($slatelyLists)): $k = 0; $__LIST__ = $slatelyLists;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($k % 2 );++$k;?><li>
+                        <a href="/share/<?php echo ($vo['id']); ?>" class="project-item">
+                            <img src="/Public/Home/images/share/<?php echo ($k); ?>.jpg" alt="" />
+                            <div class="overlay">
+                                <h5><?php echo ($vo['title']); ?></h5>
+                                <p><?php echo ($vo['keywords']); ?></p>
+                            </div>
+                        </a>
+                    </li><?php endforeach; endif; else: echo "" ;endif; ?>
             </ul>
         </div>
         <!-- /Project Carousel -->
