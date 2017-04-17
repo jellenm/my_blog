@@ -62,48 +62,15 @@
             </div>
 
             <ul class="blog-carousel">
-                <li>
-                    <a href="./blog_post.html">
-                        <h4>Feeling the Wrath</h4>
-                    </a>
-                    <span class="date">05 Jul 2012 · 22 Comments</span>
-                    <p>Nam ultricies dolor eu velit varius scelerisque. Vestibulum in lacus in felis pretium feugiat non sed elit. Duis pretium, urna sed pellentesque tincidunt, neque massa imperdiet nisi, sed cursus leo magna...</p>
-                </li>
-                <li>
-                    <a href="./blog_post.html">
-                        <h4>Craig's List</h4>
-                    </a>
-                    <span class="date">04 Jul 2012 · 22 Comments</span>
-                    <p>Sed nunc tortor, sagittis quis viverra id, molestie vitae nibh. Donec vitae lacus sed risus accumsan consectetur ut a ligula. Etiam vitae nisi diam, in rutrum dui. In facilisis, erat sed laoreet aliquet, mauris urna placerat enim...</p>
-                </li>
-                <li>
-                    <a href="./blog_post.html">
-                        <h4>Summer Sounds</h4>
-                    </a>
-                    <span class="date">02 Jul 2012 · 22 Comments</span>
-                    <p>Pellentesque ornare, risus et vulputate mollis, massa nulla aliquam neque, sed hendrerit orci quam eget ante. Morbi pulvinar ligula at sapien ultricies hendrerit. Morbi mollis dictum libero at ultrices...</p>
-                </li>
-                <li>
-                    <a href="./blog_post.html">
-                        <h4>Following Our Dreams</h4>
-                    </a>
-                    <span class="date">05 Jul 2012 · 22 Comments</span>
-                    <p>Nam ultricies dolor eu velit varius scelerisque. Vestibulum in lacus in felis pretium feugiat non sed elit. Duis pretium, urna sed pellentesque tincidunt, neque massa imperdiet nisi, sed cursus leo magna...</p>
-                </li>
-                <li>
-                    <a href="./blog_post.html">
-                        <h4>Sleeping Easy</h4>
-                    </a>
-                    <span class="date">04 Jul 2012 · 22 Comments</span>
-                    <p>Sed nunc tortor, sagittis quis viverra id, molestie vitae nibh. Donec vitae lacus sed risus accumsan consectetur ut a ligula. Etiam vitae nisi diam, in rutrum dui. In facilisis, erat sed laoreet aliquet, mauris urna placerat enim...</p>
-                </li>
-                <li>
-                    <a href="./blog_post.html">
-                        <h4>Discovery Channel</h4>
-                    </a>
-                    <span class="date">02 Jul 2012 · 22 Comments</span>
-                    <p>Pellentesque ornare, risus et vulputate mollis, massa nulla aliquam neque, sed hendrerit orci quam eget ante. Morbi pulvinar ligula at sapien ultricies hendrerit. Morbi mollis dictum libero at ultrices...</p>
-                </li>
+                <volist name="blatelyLists" id="vo">
+                    <li>
+                        <a href="/blog/{$vo['id']}">
+                            <h4>{$vo['title']}</h4>
+                        </a>
+                        <span class="date">{$vo['creattime']}</span>
+                        <p>{$vo['description']}</p>
+                    </li>
+                </volist>
             </ul>
         </div>
         <!-- /Blog Carousel -->
@@ -122,60 +89,17 @@
             </div>
 
             <ul class="project-carousel">
-                <li>
-                    <a href="./portfolio_details.html" class="project-item">
-                        <img src="__IMG__/content/project_4_05.jpg" alt="" />
-                        <div class="overlay">
-                            <h5>Enhancing the moment</h5>
-                            <p>Web Design</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="./portfolio_details.html" class="project-item">
-                        <img src="__IMG__/content/project_4_06.jpg" alt="" />
-                        <div class="overlay">
-                            <h5>Connecting pictures</h5>
-                            <p>Motion Graphics</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="./portfolio_details.html" class="project-item">
-                        <img src="__IMG__/content/project_4_07.jpg" alt="" />
-                        <div class="overlay">
-                            <h5>Real-world workflow</h5>
-                            <p>Artwork</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="./portfolio_details.html" class="project-item">
-                        <img src="__IMG__/content/project_4_08.jpg" alt="" />
-                        <div class="overlay">
-                            <h5>Completing the story</h5>
-                            <p>Web Design</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="./portfolio_details.html" class="project-item">
-                        <img src="__IMG__/content/project_4_09.jpg" alt="" />
-                        <div class="overlay">
-                            <h5>Through the roads</h5>
-                            <p>Animation</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="./portfolio_details.html" class="project-item">
-                        <img src="__IMG__/content/project_4_10.jpg" alt="" />
-                        <div class="overlay">
-                            <h5>The past</h5>
-                            <p>Print Design</p>
-                        </div>
-                    </a>
-                </li>
+                <volist name="slatelyLists" id="vo" key="k">
+                    <li>
+                        <a href="/share/{$vo['id']}" class="project-item">
+                            <img src="__IMG__/share/{$k}.jpg" alt="" />
+                            <div class="overlay">
+                                <h5>{$vo['title']}</h5>
+                                <p>{$vo['keywords']}</p>
+                            </div>
+                        </a>
+                    </li>
+                </volist>
             </ul>
         </div>
         <!-- /Project Carousel -->

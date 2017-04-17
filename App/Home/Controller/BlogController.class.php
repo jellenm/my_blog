@@ -20,6 +20,9 @@ class BlogController extends Controller{
             $lists = D('article')->where('pid='.$id[0]['id'])->select();
         }
         $this->assign('lists',$lists);
+
+        $latelyLists = D('article')->where('gid=1')->order('creattime')->limit(4)->select();
+        $this->assign('latelyLists',$latelyLists);
         $this->display();
     }
     public function article($id){
@@ -36,6 +39,9 @@ class BlogController extends Controller{
 
         $this->assign('info',$articleInfo[0]);
         $this->assign('content',htmlspecialchars_decode($articleCon[0]['content']));
+        $latelyLists = D('article')->where('gid=1')->order('creattime')->limit(4)->select();
+        $this->assign('latelyLists',$latelyLists);
+
         $this->display();
     }
 

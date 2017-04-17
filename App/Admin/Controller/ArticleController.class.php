@@ -56,7 +56,6 @@ class ArticleController extends Controller{
     public function uploadArticleImg(){
         $res = upload_article_img();
         if($res['status'] == 1){
-            dump($res);
             $info = $res['msg']['wangEditorH5File'];
             $path = '/Uploads/'.$info['savepath'].$info['savename'];
             echo $path;
