@@ -15,7 +15,7 @@ class ArticleModel extends Model{
         $type = $data['pid'];
         $typeres = D('Type')->where('id = '.$type)->select();
         $data['gid'] = $typeres[0]['pid'];
-        $data['creattime'] = date();
+        $data['creattime'] = date('Y-m-d H:i:s');
         $res = $this->_db->add($data);
         if($res){
             $where['content'] = $data['content'];
@@ -64,7 +64,7 @@ class ArticleModel extends Model{
     }
     public function editArticle($data){
         if($data){
-            $data['modifytime'] = date('y-m-d h:i:s',time());
+            $data['modifytime'] = date('y-m-d h:i:s');
             $res = $this->_db->save($data);
             $pid['pid'] = $data['id'];
             $rescontent = M('Content')->where($pid)->select();

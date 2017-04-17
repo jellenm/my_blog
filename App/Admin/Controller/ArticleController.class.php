@@ -100,7 +100,7 @@ class ArticleController extends Controller{
                 $this->assign('type',$types);
                 $this->display();
             }else{
-                $this->error('没有该文章','Admin/Article/index');
+                $this->error('没有该文章','/Admin/Article/index');
             }
         }
 
