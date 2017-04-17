@@ -13,7 +13,9 @@
             <!-- Normal Post -->
             <volist name="lists" id="vo">
                 <div class="post clearfix">
-                    <a href="/blog/{$vo['id']}"><h2>{$vo['title']}</h2></a>
+                    <a href="/blog/{$vo['id']}">
+                        <h2>{$vo['title']}</h2>
+                    </a>
                     <ul class="post-meta">
                         <li class="author">By <a href="./blog.html">{$vo['author']}</a></li>
                         <li class="date">{$vo['creattime']}</li>

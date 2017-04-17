@@ -41,23 +41,13 @@
 
         <!-- Accordion -->
         <div class="widget">
-            <h5>Accordion Widget</h5>
-            <div class="accordion-button first" id="open"><a href="./blog.html">Website Design</a></div>
-            <div class="accordion-content">
-                Lorem ipsum dolor sit amet nec, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.
-            </div>
-            <div class="accordion-button"><a href="./blog.html">Website Development</a></div>
-            <div class="accordion-content">
-                Lorem ipsum dolor sit amet nec, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.
-            </div>
-            <div class="accordion-button"><a href="./blog.html">Content Management Systems</a></div>
-            <div class="accordion-content">
-                Lorem ipsum dolor sit amet nec, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.
-            </div>
-            <div class="accordion-button"><a href="./blog.html">E-Commerce</a></div>
-            <div class="accordion-content">
-                Lorem ipsum dolor sit amet nec, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.
-            </div>
+            <h5>最新文章</h5>
+            <volist name="latelyLists" id="list">
+                <div class="accordion-button"><a href="/blog/{$list['id']}">{$list['title']}</a></div>
+                <div class="accordion-content">
+                    {$list['description']}
+                </div>
+            </volist>
         </div>
         <!-- Accordion -->
 
