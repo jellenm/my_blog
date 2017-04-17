@@ -1,9 +1,1 @@
-App/Runtime/Logs/Admin/17_04_11.log
-App/Runtime/Logs/Common/17_04_11.log
-App/Runtime/Logs/Home/17_04_11.log
-App/Runtime/Cache/Admin/2dfa1a855dad0ff4eb92ba107e8936d5.php
-App/Runtime/Cache/Home/789d517c7ccc553bc276d944f696bfcf.php
-App/Runtime/Cache/Home/eebdbfaab5a073cecac2b093d1116c94.php
-App/Runtime/Logs/Admin/17_04_14.log
-App/Runtime/Logs/Home/17_04_14.log
-App/Runtime/Logs/Home/17_04_17.log
+App/Runtime/*
