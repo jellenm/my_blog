@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
-<meta type="description" content="" />
-<meta type="keywords" content="" />
-<meta type="author" content="" />
+    <title>Jellen</title>
+<meta type="description" content="做一个爱分享，爱生活，爱工作的人！" />
+<meta type="keywords" content="个人博客,个人博客模板,IT,个人分享,Jellen,jellen" />
+<meta type="author" content="Jellen" />
 <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <link rel="stylesheet" href="/Public/Home/css/style.css" type="text/css" />
 <link rel="stylesheet" href="/Public/Home/css/flexslider.css" type="text/css" />
@@ -46,6 +46,7 @@
     
     <div id="main">
         <div class="post single clearfix">
+            <h2><?php echo ($info['title']); ?></h2>
             <ul class="post-meta">
                 <li class="author">By <a href="./blog_post.html"><?php echo ($info['author']); ?></a></li>
                 <li class="date"><?php echo ($info['creattime']); ?></li>
