@@ -13,17 +13,16 @@ class ShareController extends Controller{
         $this->assign('navigation',$navigation);
 
         if($type == '0'){
-            $lists = D('Article')->where('gid=2')->select();
+            $lists = D('Article')->where('gid=2')->order('creattime desc')->select();
         }else{
             $data['title'] = $type;
             $id = D('Type')->where($data)->select();
-            $lists = D('article')->where('pid='.$id[0]['id'])->select();
+            $lists = D('article')->where('pid='.$id[0]['id'])->order('creattime desc')->select();
         }
         $this->assign('lists',$lists);
 
-        $latelyLists = D('article')->where('gid=2')->order('creattime')->limit(4)->select();
+        $latelyLists = D('article')->where('gid=2')->order('creattime desc')->limit(4)->select();
         $this->assign('latelyLists',$latelyLists);
-
         $this->display();
     }
     public function article($id){

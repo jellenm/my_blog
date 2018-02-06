@@ -1,6 +1,7 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
+
 class IndexController extends Controller {
     public function index(){
         $navigation = M('Navigation')->select();
@@ -11,16 +12,13 @@ class IndexController extends Controller {
         }
         $this->assign('navigation',$navigation);
 
-        $latelyLists = D('article')->where('gid=1')->order('creattime')->limit(6)->select();
+        $latelyLists = D('article')->where('gid=1')->order('creattime desc')->limit(6)->select();
         $this->assign('blatelyLists',$latelyLists);
-
-        $latelyLists = D('article')->where('gid=2')->order('creattime')->limit(4)->select();
+        $latelyLists = D('article')->where('gid=2')->order('creattime desc')->limit(4)->select();
         $this->assign('slatelyLists',$latelyLists);
-
         $this->display();
     }
     public function add(){
-
         $this->display();
     }
 }
