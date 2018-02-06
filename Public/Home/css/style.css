@@ -136,7 +136,8 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
         margin-left: -520px;
         position: relative;
         width: 1040px;
-        overflow-y: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;
     }
     .container {
         margin: 0 20px;
