@@ -142,3 +142,10 @@ header{
 .navigation-box{
     margin-left:50px;
 }
+.small-image{
+    text-align: center;
+}
+.small-image img{
+    width: 120px;
+    height:auto;
+}

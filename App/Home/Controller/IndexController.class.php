@@ -16,6 +16,10 @@ class IndexController extends Controller {
         $this->assign('blatelyLists',$latelyLists);
         $latelyLists = D('article')->where('gid=2')->order('creattime desc')->limit(4)->select();
         $this->assign('slatelyLists',$latelyLists);
+
+        $banners = M('Banners')->select();
+        $this->assign('banners',$banners);
+
         $this->display();
     }
     public function add(){

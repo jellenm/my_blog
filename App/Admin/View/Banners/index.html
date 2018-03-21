@@ -1,0 +1,19 @@
+<extend name="Base/index" />
+<block name="bodyRight">
+    <div class="bodyRight category">
+        <div class="btn-group article-btn" role="group" aria-label="..." >
+            <a type="button" href="/Admin/Banners/add" class="btn btn-default">添加</a>
+            <a type="button" id="bannerDelete" class="btn btn-default">删除</a>
+        </div>
+        <form class="form-horizontal">
+            <table class="table table-bordered menu_manage" >
+                <tr><th><input type="checkbox" class="select-all" />全选</th><th>id</th><th>名称</th><th>描述</th><th>预览</th><th>创建时间</th><th>操作</th></tr>
+                <volist name="banners" id="vo">
+                    <tr><td><input type="checkbox" class="article-input" name="delete[]" data-uid="{$vo.id}" /></td><td>{$vo.id}</td><td>{$vo.title}</td><td>{$vo.description}</td><td class="small-image">
+                        <img src="{$vo.path}" alt=""></td><td>{$vo.createtime}</td><td><a href="/Admin/Banners/edit/id/{$vo.id}">编辑</a></td></tr>
+                </volist>
+            </table>
+            <div>{$page}</div>
+        </form>
+    </div>
+</block>

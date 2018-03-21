@@ -12,6 +12,7 @@ return array(
     'DEFAULT_CONTROLLER'=>'Index',
     'DEFAULT_ACTION'=>'index',
     'URL_MODEL'=>2,
+    'DATA_CACHE_TIME'=>'600',
     'URL_ROUTER_ON'   => true,
     'URL_ROUTE_RULES' =>array(
         'blog$'=>array('Blog/index','type=0'),
@@ -21,4 +22,5 @@ return array(
         'share/:id\d'=> array('Share/article'),
         'share/:type'=> array('Share/index'),
     )
+
 );

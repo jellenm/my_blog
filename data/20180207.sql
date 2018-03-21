@@ -1,19 +1,5 @@
 ﻿SET FOREIGN_KEY_CHECKS = 0;
 
-DROP TABLE IF EXISTS  `think_admin`;
-CREATE TABLE `think_admin` (
-  `id` mediumint(6) unsigned NOT NULL AUTO_INCREMENT,
-  `username` varchar(20) NOT NULL,
-  `password` varchar(32) NOT NULL,
-  `lastloginip` varchar(15) DEFAULT NULL,
-  `lastlogintime` int(10) unsigned DEFAULT NULL,
-  `email` varchar(20) NOT NULL,
-  `status` tinyint(1) unsigned DEFAULT '1',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
-insert into `think_admin`(`id`,`username`,`password`,`lastloginip`,`lastlogintime`,`email`,`status`) values
-('2','jellen','d2cda6a7ff06e1eba9d7f447cf498dc4','36.5.152.105','1517814043','','1');
 DROP TABLE IF EXISTS  `think_article`;
 CREATE TABLE `think_article` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
@@ -35,6 +21,22 @@ insert into `think_article`(`id`,`pid`,`title`,`description`,`creattime`,`author
 ('5','4','js书籍推荐','从上学开始，我们获取全面，权威的知识，一般都是通过书籍，如果想要深入了解JavaScript，我觉得还是来读书比较直接。','2017-04-16 00:00:00','jellen','1','/Uploads/2017-04-15/149226757318.jpg','JavaScript，推荐书籍，经典','1','0000-00-00 00:00:00'),
 ('6','11','美好的书写风格，从注释和学习开始吧！','昨天领导给我说了点东西，起初我是比较赞同，然后我觉得不对，再然后我有点失望，到现在我觉得我又有了努力的方向了，我想把我的','2017-12-26 12:55:24','jellen','1','/Uploads/2017-12-26/151426351115.jpg','奋斗,改变,学习','2','0000-00-00 00:00:00'),
 ('7','11',' 久别重逢，失而复得，虚惊一场',' 久别重逢，失而复得，虚惊一场','2018-02-05 15:19:07','jellen','1','/Uploads/2018-02-05/151781514116.jpg','外婆','2','0000-00-00 00:00:00');
+DROP TABLE IF EXISTS  `think_banners`;
+CREATE TABLE `think_banners` (
+  `id` int(8) unsigned NOT NULL AUTO_INCREMENT,
+  `description` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `title` varchar(30) CHARACTER SET utf8 NOT NULL,
+  `path` varchar(50) NOT NULL,
+  `createtime` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=gbk;
+
+insert into `think_banners`(`id`,`description`,`title`,`path`,`createtime`) values
+('1','-------2015.10 黄山','黄山','/Uploads/2018-02-07/151798618613.jpg','2018-02-07 14:49:51'),
+('2','-------2015.10 黄山','朝霞','/Uploads/2018-02-07/151798655215.jpg','2018-02-07 14:55:53'),
+('3','-------2015.10 黄山','日出','/Uploads/2018-02-07/151798669416.jpg','2018-02-07 14:58:16'),
+('4','-------2015.10 黄山','日落','/Uploads/2018-02-07/151798743919.jpg','2018-02-07 15:10:41'),
+('5','-------2015.10 黄山','溪水','/Uploads/2018-02-07/151798748413.jpg','2018-02-07 15:11:39');
 DROP TABLE IF EXISTS  `think_content`;
 CREATE TABLE `think_content` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
@@ -59,14 +61,15 @@ CREATE TABLE `think_menu` (
   `c` varchar(20) NOT NULL,
   `a` varchar(20) NOT NULL,
   PRIMARY KEY (`menu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8;
 
 insert into `think_menu`(`menu_id`,`title`,`order`,`type`,`status`,`m`,`c`,`a`) values
 ('76','菜单管理','0','2','1','Admin','Menu','index'),
 ('77','推荐位管理','0','2','1','Admin','Recommend','index'),
 ('78','文章添加','0','2','1','Admin','article','index'),
 ('79','文章类型','0','2','1','Admin','Type','index'),
-('80','前台导航','0','2','1','Admin','Navigation','index');
+('80','前台导航','0','2','1','Admin','Navigation','index'),
+('83','banner管理','0','2','1','Admin','Banners','index');
 DROP TABLE IF EXISTS  `think_navigation`;
 CREATE TABLE `think_navigation` (
   `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,

@@ -8,41 +8,15 @@
         <!-- Slider -->
         <div id="main-slider" class="flexslider">
             <ul class="slides">
-                <li>
-                    <img src="__IMG__/slider/slider3.jpg" alt="" />
-                    <div class="flex-caption">
-                        <h3>日出</h3>
-                        <p class="ps">-------2015.10 黄山</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="__IMG__/slider/slider1.jpg" alt="" />
-                    <div class="flex-caption">
-                        <h3>黄山</h3>
-                        <p class="ps">-------2015.10 黄山</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="__IMG__/slider/slider4.jpg" alt="" />
-                    <div class="flex-caption">
-                        <h3>日落</h3>
-                        <p class="ps">-------2015.10 黄山</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="__IMG__/slider/slider6.jpg" alt="" />
-                    <div class="flex-caption">
-                        <h3>溪水</h3>
-                        <p class="ps">-------2015.10 黄山</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="__IMG__/slider/slider2.jpg" alt="" />
-                    <div class="flex-caption">
-                        <h3>朝霞</h3>
-                        <p class="ps">-------2015.10 黄山</p>
-                    </div>
-                </li>
+                <volist name="banners" id="vo">
+                    <li >
+                        <img src="{$vo.path}" alt="" />
+                        <div class="flex-caption">
+                            <h3>{$vo['title']}</h3>
+                            <p class="ps">{$vo['description']}</p>
+                        </div>
+                    </li>
+                </volist>
             </ul>
         </div>
         <!-- /Slider -->

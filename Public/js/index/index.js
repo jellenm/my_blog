@@ -334,8 +334,8 @@ $('#articleUpImg').change(function(){
                layerTool.error(res['msg']);
            }
         },
-        error:function(){
-
+        error:function(e){
+            console.log('error',e)
         }
     });
 
@@ -386,6 +386,34 @@ $('#articleAdd').click(function(){
     })
 
 });
+$('#bannerAdd').click(function(){
+    var title = $('#articleTitle').val();
+    var description = $('#articleDes').val();
+    var thumb = $('#articleImgShow').attr('src');
+
+
+
+    $.ajax({
+        url:'/Admin/Banners/addBanner',
+        type:'POST',
+        data:{
+            title:title,
+            description:description,
+            thumb:thumb
+        },
+        success:function(data){
+            var res = JSON.parse(data);
+            if(res.status == 1){
+                console.log('111')
+                layerTool.success('创建成功',function(){
+                    window.location.href='/Admin/Banners/index'
+                })
+            }
+        },
+        error:function(){}
+    })
+
+})
 
 $('.select-all').click(function(){
     allchecked = !allchecked;
@@ -499,3 +527,64 @@ $('#navigationAdd').click(function(){
     })
 
 });
+
+$('#bannerDelete').click(function(){
+    var $inputs = $("input.article-input");
+    if($inputs.length == 0){ layerTool.error('请选择一个删除对象'); return;}
+    var arr=[];
+    for(var i=0;i<$inputs.length;i++){
+        if($($inputs[i]).is(':checked')){
+            var uid = $($inputs[i]).attr('data-uid');
+            arr.push(uid);
+        }
+    }
+    $.ajax({
+        url:'/Admin/Banners/delete',
+        data:{'datas':arr},
+        type:'POST',
+        success:function(data){
+            var res = JSON.parse(data);
+            if(res.status == 1){
+                layerTool.success(res.msg,function(){
+                    window.location.href='/Admin/Banners/index';
+                });
+            }else{
+                layerTool.error(res.msg);
+            }
+        },
+        error:function(){
+            layerTool.error('删除失败');
+        }
+    })
+});
+$('#bannerEdit').click(function(){
+    var title = $('#articleTitle').val();
+    var description = $('#articleDes').val();
+    var thumb = $('#articleImgShow').attr('src');
+    var id = $('#cid').val();
+
+    $.ajax({
+        url:'/Admin/Banners/editBanner',
+        data:{
+            title:title,
+            description:description,
+            path:thumb,
+            id:id
+        },
+        type:'POST',
+        success:function(data){
+            var res = JSON.parse(data);
+            if(res.status == 1){
+                layerTool.success(res.msg,function(){
+                    window.location.href='/Admin/Banners/index';
+                });
+            }else{
+                layerTool.error(res.msg);
+            }
+        },
+        error:function(error){
+            layerTool.error(error.msg);
+        }
+    })
+})
+
